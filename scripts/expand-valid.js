@@ -1,0 +1,168 @@
+const https = require('https');
+const fs = require('fs');
+
+const moreCandidates = [
+  // Additional beverages & cocktails
+  'photo-1551538827-9c037cb4f32a', // milkshake
+  'photo-1563227812-0ea4c22e6cc8', // iced tea
+  'photo-1579871494447-9811cf80d66c', // sushi/rolls
+  'photo-1544025162-d76694265947', // platter
+  'photo-1565299624946-b28f40a0ae38', // pizza/cheesy
+  'photo-1568901346375-23c9450c58cd', // burger
+  'photo-1550547660-d9450f859349', // burger
+  'photo-1561758033-d89a9ad46330', // burger
+  'photo-1571091718767-18b5b1457add', // burger
+  'photo-1586190848861-99aa4a171e90', // burger
+  'photo-1596662951482-0c4ba74a6df6', // burger
+  'photo-1551782450-a2132b4ba21d', // burger
+  'photo-1565299507177-b0ac66763828', // burger
+  // Wraps / Mexican / Arabian
+  'photo-1541544741938-0af808871cc0', // wrap
+  'photo-1626700051175-6818013e1d4f', // wrap
+  'photo-1628294895950-9805252327bc', // taco/wrap
+  'photo-1565299585323-38d6b0865b47', // wrap
+  'photo-1565299624946-b28f40a0ae38', // snack
+  // Drinks
+  'photo-1513558161293-cdaf765ed2fd', // lime
+  'photo-1544787219-7f47ccb76574', // drink
+  'photo-1534353473418-4cfa6c56fd38', // citrus
+  'photo-1556881286-fc6915169721', // fizz
+  'photo-1595981267035-7b04ca84a82d', // blue
+  'photo-1514362545857-3bc16c4c7d1b', // cocktail
+  'photo-1510812431401-41d2bd2722f3', // cocktail
+  'photo-1536935338788-846bb9981813', // green drink
+  'photo-1551024709-8f23befc6f87', // mojito
+  'photo-1560512823-829485b8bf24', // green
+  'photo-1597075687490-8f673c6c17f6', // berry
+  'photo-1546171753-97d7676e4602', // dark
+  'photo-1587393855524-087f83d95bc9', // kiwi
+  'photo-1570857502809-08184874388e', // glass
+  'photo-1582106245687-cbb466a9f07f', // frost
+  'photo-1579954115545-a95591f28bfc', // red
+  'photo-1517256064527-09c73fc73e38', // iced
+  'photo-1568644396922-5c3bfae12521', // blueberry
+  'photo-1527661591475-527312dd65f5', // juice
+  'photo-1553530666-ba11a7da3888', // smoothie
+  'photo-1505252585461-04db1eb84625', // rose
+  'photo-1546173159-315724a31696', // mango
+  'photo-1589733955941-5eeaf752f6dd', // lassi
+  'photo-1571115177098-24ec42ed204d', // nuts
+  'photo-1568909344668-6f14a07b56a0', // pink
+  'photo-1528736235302-52922df5c122', // dates
+  'photo-1514432324607-a09d9b4aefdd', // coffee
+  'photo-1576092768241-dec231879fc3', // saffron
+  'photo-1577805947697-89e18249d767', // thick
+  'photo-1570197788417-0e82375c9371', // chocolate
+  'photo-1517701604599-bb29b565090c', // cold coffee
+  'photo-1578314675249-a6910f80cc4e', // mocha
+  'photo-1461023058943-07fcbe16d735', // creamy
+  'photo-1559496417-e7f25cb247f3', // peanut
+  'photo-1563805042-7684c019e1cb', // brownie
+  'photo-1541167760496-1628856ab772', // mud
+  'photo-1572442388796-11668a67e53d', // latte
+  'photo-1509042239860-f550ce710b93', // beans
+  'photo-1505394033641-40c6ad1178d7', // mango ice
+  'photo-1606313564200-e75d5e30476c', // brownie ice
+  'photo-1501443762994-82bd5dace89a', // vanilla ice
+  'photo-1557142046-c704a3adf364', // choc ice
+  'photo-1560008581-09826d1de69e', // waffle
+  'photo-1587314168485-3236d6710814', // sundae
+  'photo-1576107232684-1279f3908594', // peri fries
+  'photo-1585109649139-366815a0d713', // cheese fries
+  'photo-1626082927389-6cd097cdc6ec', // popcorn
+  'photo-1562967914-608f82629710', // nuggets
+  'photo-1541592106381-b31e9677c0e5', // veg nuggets
+  'photo-1619895092538-128341789043', // garlic bread
+  'photo-1593001874117-c99c800e3eb7', // falafel
+  'photo-1534422298391-e4f8c172dddb', // snack
+  'photo-1573080496219-bb080dd4f877', // fries
+  'photo-1585238342024-78d387f4a707', // bites
+  'photo-1546069901-ba9599a7e63c', // bowl
+  'photo-1528735602780-2552fd46c7af', // sandwich
+  'photo-1604467794349-0b74285de7e7', // sandwich
+  'photo-1553909489-cd47e0907980', // sandwich
+  'photo-1567620905732-2d1ec7ab7445', // pancake
+  'photo-1481070414801-51fd732d7184', // sandwich
+  'photo-1513456852971-30c0b8199d4d', // nachos
+  'photo-1556679343-c7306c1976bc', // ice tea
+  // Fresh additions:
+  'photo-1572490122747-3968b75cc699',
+  'photo-1502741224143-90386d7f8c82',
+  'photo-1587049352846-4a222e784d38',
+  'photo-1550258987-190a2d41a8ba',
+  'photo-1613478223719-2ab802602423',
+  'photo-1622597467836-f3285f2131b8',
+  'photo-1621263764928-df1444c5e859',
+  'photo-1599488615731-7e5c2823ff28',
+  'photo-1603360946369-dc9bb6258143',
+  'photo-1567188040759-fb8a883dc6d8',
+  'photo-1589301760014-d929f3979dbc',
+  'photo-1631452180519-c014fe946bc7',
+  'photo-1559847844-5315695dadae',
+  'photo-1615870216519-2f9fa575fa5c',
+  // Food items
+  'photo-1529193591184-b1d58069ecdd',
+  'photo-1519708227418-c8fd9a32b7a2',
+  'photo-1540189549336-e6e99c3679fe',
+  'photo-1565299585323-38d6b0865b47',
+  'photo-1512621776951-a57141f2eefd',
+  'photo-1498837167922-ddd27525d352',
+  'photo-1497034825429-c343d7c6a68f',
+  'photo-1482049016688-2d3e1b311543',
+  'photo-1484723091739-30a097e8f929',
+  'photo-1490645935967-10de6ba17061',
+  'photo-1476224203421-9ac39bcb3327',
+  'photo-1473093295043-cdd812d0e601',
+  'photo-1467003909585-2f8a72700288',
+  'photo-1432139555190-58524dae6a55',
+  'photo-1504754524776-8f4f37790ca0',
+  'photo-1563379091339-03b21ab4a4f8',
+  'photo-1564834724105-918b73d1b9e0',
+  'photo-1564844536311-de546a28c87d',
+  'photo-1564844536311-de546a28c87e',
+  'photo-1565557623262-b51c2513a641', // Indian curry/naan
+  'photo-1567337710282-00832b415979',
+  'photo-1571091718767-18b5b1457add',
+  'photo-1585518419759-7fe2e0fbf8a6',
+  'photo-1594041680534-e8c8cdebd659',
+  'photo-1601050690597-df0568f70950', // samosa/appetizer
+  'photo-1606491956689-2ea866880c84', // street food
+  'photo-1610057099443-fde8c4d50f91', // drink
+  'photo-1610057099431-d7031121d51c', // juice
+  'photo-1617093727343-374698b1b08d', // Asian
+  'photo-1625944230945-1b7dd3b949ab', // wrap
+  'photo-1627308595229-7830a5c91f9f', // roll
+  'photo-1630384060421-cb20d0e0649d', // dessert
+  'photo-1631452180519-c014fe946bc7', // paneer
+  'photo-1632778149955-e80f8ceca2e8'  // drink
+];
+
+function checkUrl(id) {
+  return new Promise((resolve) => {
+    const url = `https://images.unsplash.com/${id}?w=300&q=70`;
+    https.get(url, (res) => {
+      resolve({ id, ok: res.statusCode === 200 });
+    }).on('error', () => resolve({ id, ok: false }));
+  });
+}
+
+async function run() {
+  const existing = JSON.parse(fs.readFileSync('./scripts/valid-photos.json', 'utf8'));
+  const set = new Set(existing);
+  const candidates = moreCandidates.filter(c => !set.has(c));
+  console.log(`Checking ${candidates.length} additional candidates...`);
+
+  for (let i = 0; i < candidates.length; i += 10) {
+    const chunk = candidates.slice(i, i + 10);
+    const results = await Promise.all(chunk.map(checkUrl));
+    results.forEach(r => {
+      if (r.ok) set.add(r.id);
+    });
+  }
+
+  const allValid = Array.from(set);
+  console.log(`Total Unique Valid Photos Available: ${allValid.length}`);
+  fs.writeFileSync('./scripts/valid-photos.json', JSON.stringify(allValid, null, 2));
+}
+
+run();

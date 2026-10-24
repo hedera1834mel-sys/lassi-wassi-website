@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1111"/>
+      <stop offset="50%" stop-color="#140D0D"/>
+      <stop offset="100%" stop-color="#250E0E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#E50914" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <circle cx="400" cy="270" r="180" fill="url(#glow)"/>
+  <g transform="translate(400, 270)" text-anchor="middle">
+    <circle r="56" fill="#1F1414" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+    <path d="M-16 -24 L-16 4 M-22 -24 L-22 -8 C-22 0 -16 4 -16 4 M-10 -24 L-10 -8 C-10 0 -16 4 -16 4 M-16 4 L-16 24 M16 -24 C10 -24 8 -16 8 -8 C8 0 14 4 16 4 L16 24 M16 4 C18 4 24 0 24 -8 C24 -16 22 -24 16 -24 Z" 
+          fill="none" stroke="#E50914" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text y="100" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#E5E7EB" letter-spacing="2">LASSI WASSI</text>
+    <text y="126" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#9CA3AF" letter-spacing="1.5">FRESH AT COUNTER</text>
+  </g>
+</svg>

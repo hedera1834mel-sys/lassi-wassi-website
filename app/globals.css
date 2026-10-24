@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #100D0D;
+    --color-text: #F3F4F6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #100D0D;
+    color: #F3F4F6;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #100D0D;
+    background-image: 
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(53, 14, 14, 0.45), transparent 70%),
+      radial-gradient(ellipse 70% 50% at 100% 40%, rgba(42, 12, 12, 0.3), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 0% 75%, rgba(35, 10, 10, 0.35), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 100%, rgba(42, 12, 12, 0.35), transparent 70%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #151111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A0C0C;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E50914;
+}
+
+/* Hide horizontal scrollbar helper */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tasteful animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
