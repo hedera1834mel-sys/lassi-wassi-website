@@ -32,12 +32,12 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-brand-cream scroll-mt-20 overflow-hidden">
+    <section id="about" className="relative py-14 sm:py-20 lg:py-24 bg-brand-cream scroll-mt-20 overflow-hidden">
       {/* Ambient burgundy background glow */}
       <div className="absolute top-1/2 -left-20 w-[28rem] h-[28rem] bg-brand-burgundy/30 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-1/3 -right-20 w-[24rem] h-[24rem] bg-brand-burgundy-dark/25 rounded-full blur-[150px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Visual Left Showcase with Viewport Reveal */}
           <motion.div
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
@@ -46,7 +46,7 @@ export default function AboutSection() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-brand-border shadow-2xl bg-brand-surface">
+            <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-brand-surface">
               <Image
                 src="/images/site/about-kitchen.webp"
                 alt="Lassi Wassi Kitchen and Fresh Preparation"
@@ -57,7 +57,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
               {/* Floating Pune Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10">
+              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 shadow-lg">
                 <span className="text-[10px] font-black uppercase tracking-wider text-brand-orange">
                   Pune Heritage & Street Flavour
                 </span>
@@ -82,8 +82,8 @@ export default function AboutSection() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/15 text-brand-red border border-brand-red/30 text-xs font-bold uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5" /> Our Story & Passion
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <Sparkles className="w-3.5 h-3.5 text-brand-red" /> Our Story & Passion
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-cream leading-tight">
@@ -116,9 +116,9 @@ export default function AboutSection() {
                       delay: shouldReduceMotion ? 0 : idx * 0.08,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="p-4 rounded-2xl bg-brand-card border border-brand-border hover:border-neutral-700 transition-colors shadow-card-depth"
+                    className="p-4 rounded-xl bg-brand-card/90 border border-white/10 hover:border-brand-red/30 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-brand-red/15 text-brand-red flex items-center justify-center mb-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-brand-red/15 text-brand-red border border-brand-red/30 flex items-center justify-center mb-2.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="text-sm font-bold text-white uppercase tracking-wider">

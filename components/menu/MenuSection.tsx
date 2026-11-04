@@ -49,7 +49,7 @@ export default function MenuSection() {
 
 
   return (
-    <section id="menu" className="relative py-24 bg-brand-dark-burgundy bg-gradient-to-b from-brand-burgundy/20 via-transparent to-transparent scroll-mt-20 overflow-hidden">
+    <section id="menu" className="relative py-14 sm:py-20 lg:py-24 bg-brand-dark-burgundy bg-gradient-to-b from-brand-burgundy/20 via-transparent to-transparent scroll-mt-20 overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-brand-burgundy/25 blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-brand-burgundy-dark/30 blur-[150px] pointer-events-none" />
@@ -62,10 +62,10 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/15 text-brand-red border border-brand-red/30 text-xs font-bold uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5" /> 17 Flavour Categories
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <Sparkles className="w-3.5 h-3.5 text-brand-red" /> 17 Flavour Categories
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             The Complete Lassi Wassi Menu
@@ -81,7 +81,7 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-brand-card/70 border border-brand-border p-3.5 sm:p-4 rounded-3xl backdrop-blur-md"
+          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-brand-card/80 border border-white/10 p-3.5 sm:p-4 rounded-xl backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
         >
           {/* Search Box */}
           <div className="relative w-full md:w-96">
@@ -91,7 +91,7 @@ export default function MenuSection() {
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               placeholder="Search shawarma, burger, mango lassi, coffee..."
-              className="w-full bg-brand-surface border border-brand-border rounded-2xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red transition-colors"
+              className="w-full bg-brand-surface/90 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red transition-all"
             />
             {searchQuery && (
               <button
@@ -112,8 +112,8 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("ALL")}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "ALL"
-                  ? "bg-brand-red text-white shadow-glow-red"
-                  : "bg-brand-surface text-neutral-400 hover:text-white border border-brand-border"
+                  ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_2px_10px_rgba(229,9,20,0.35)]"
+                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
               All
@@ -122,8 +122,8 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("NON-VEG")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "NON-VEG"
-                  ? "bg-brand-non-veg text-white shadow-md shadow-red-950"
-                  : "bg-brand-surface text-neutral-400 hover:text-white border border-brand-border"
+                  ? "bg-brand-non-veg text-white border border-red-400/40 shadow-md shadow-red-950"
+                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-brand-non-veg" /> Non-Veg
@@ -132,8 +132,8 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("VEG")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "VEG"
-                  ? "bg-brand-veg text-white shadow-md shadow-emerald-950"
-                  : "bg-brand-surface text-neutral-400 hover:text-white border border-brand-border"
+                  ? "bg-brand-veg text-white border border-emerald-400/40 shadow-md shadow-emerald-950"
+                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-brand-veg" /> Pure Veg
@@ -152,10 +152,10 @@ export default function MenuSection() {
           <div className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar w-full max-w-full">
             <button
               onClick={() => handleCategorySelect("ALL")}
-              className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
+              className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
                 selectedCategory === "ALL"
-                  ? "bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-glow-red scale-105"
-                  : "bg-brand-card hover:bg-brand-card-hover text-neutral-300 border border-brand-border"
+                  ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_16px_rgba(229,9,20,0.35)]"
+                  : "bg-brand-card/90 hover:bg-white/10 text-neutral-300 border border-white/10"
               }`}
             >
               <span>🔥</span>
@@ -171,10 +171,10 @@ export default function MenuSection() {
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.id)}
-                  className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
+                  className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
                     isSelected
-                      ? "bg-gradient-to-r from-brand-red to-brand-orange text-white shadow-glow-red scale-105"
-                      : "bg-brand-card hover:bg-brand-card-hover text-neutral-300 border border-brand-border"
+                      ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_16px_rgba(229,9,20,0.35)]"
+                      : "bg-brand-card/90 hover:bg-white/10 text-neutral-300 border border-white/10"
                   }`}
                 >
                   <span>{cat.icon}</span>
@@ -190,7 +190,7 @@ export default function MenuSection() {
 
         {/* Menu Items Grid with Progressive Loading & Smooth Category Transitions */}
         {filteredItems.length === 0 ? (
-          <div className="text-center py-16 bg-brand-card border border-brand-border rounded-3xl p-8 max-w-lg mx-auto">
+          <div className="text-center py-16 bg-brand-card border border-white/10 rounded-xl p-8 max-w-lg mx-auto shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
             <div className="text-4xl mb-3">🔍</div>
             <h3 className="text-lg font-bold text-white">No dishes found</h3>
             <p className="text-xs text-neutral-400 mt-1">
@@ -202,7 +202,7 @@ export default function MenuSection() {
                 setDietFilter("ALL");
                 setSearchQuery("");
               }}
-              className="mt-4 px-4 py-2 rounded-xl bg-brand-red text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-red-light transition-colors"
+              className="mt-4 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-opacity"
             >
               Reset Filters
             </button>
@@ -221,7 +221,7 @@ export default function MenuSection() {
         )}
 
         {/* Source of Truth & Hygiene Guarantee Banner */}
-        <div className="mt-14 p-6 rounded-3xl bg-gradient-to-r from-brand-card via-brand-surface to-brand-card border border-brand-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-14 p-6 rounded-xl bg-gradient-to-r from-brand-card via-[#1e0e0e] to-brand-card border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-8 h-8 text-emerald-400 shrink-0" />
             <div>

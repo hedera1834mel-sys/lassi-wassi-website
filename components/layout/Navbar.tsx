@@ -55,11 +55,11 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-brand-black/95 backdrop-blur-xl border-b border-brand-border py-3 shadow-2xl"
-          : "bg-transparent py-5"
+          ? "bg-black/85 backdrop-blur-xl border-b border-white/10 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.7)]"
+          : "bg-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full">
         {/* Logo */}
         <button
           onClick={() => handleLinkClick("#top")}
@@ -100,16 +100,16 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           {/* WhatsApp Quick Order Tray Trigger */}
           {totalItems > 0 && (
             <button
               onClick={() => setIsTrayOpen(true)}
-              className="relative p-2.5 rounded-xl bg-brand-surface border border-brand-border text-white hover:border-brand-red transition-colors"
+              className="relative p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white hover:border-brand-orange/40 backdrop-blur-md transition-colors shadow-sm"
               aria-label="Open tray"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center">
+              <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-md bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
                 {totalItems}
               </span>
             </button>
@@ -118,7 +118,7 @@ export default function Navbar() {
           {/* Primary Order Now Button */}
           <button
             onClick={handleOrderClick}
-            className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-red hover:bg-brand-red-light text-white font-black text-xs uppercase tracking-wider shadow-glow-red hover:shadow-glow-red-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-brand-red-light hover:to-orange-500 text-white font-black text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>ORDER NOW</span>
           </button>
@@ -126,7 +126,7 @@ export default function Navbar() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -137,9 +137,9 @@ export default function Navbar() {
 
       {/* Mobile Animated Slide-down Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-brand-surface/98 backdrop-blur-2xl border-b border-brand-border p-6 shadow-2xl animate-fade-in">
+        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-black/92 backdrop-blur-2xl border-b border-white/10 p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] animate-fade-in">
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-3 pb-3 border-b border-brand-border">
+            <div className="flex items-center gap-3 pb-3 border-b border-white/10">
               <div className="relative w-10 h-10 flex-shrink-0">
                 <Image
                   src="/images/logo.png"
@@ -162,24 +162,24 @@ export default function Navbar() {
               <button
                 key={link.label}
                 onClick={() => handleLinkClick(link.href)}
-                className="text-left text-base font-bold uppercase tracking-wider text-neutral-200 hover:text-brand-red py-2 border-b border-brand-border/40 transition-colors"
+                className="text-left text-sm sm:text-base font-bold uppercase tracking-wider text-neutral-200 hover:text-brand-red py-2 border-b border-white/[0.06] transition-colors"
               >
                 {link.label}
               </button>
             ))}
 
             {/* Mobile Actions */}
-            <div className="pt-4 space-y-3">
+            <div className="pt-3 space-y-3">
               <button
                 onClick={handleOrderClick}
-                className="w-full py-3.5 rounded-xl bg-brand-red text-white font-black text-sm uppercase tracking-wider shadow-glow-red flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 flex items-center justify-center gap-2"
               >
                 <span>ORDER NOW (WHATSAPP / APPS)</span>
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-xs text-neutral-400 pt-2">
+              <div className="flex items-center justify-center gap-2 text-xs text-neutral-400 pt-1">
                 <Phone className="w-3.5 h-3.5 text-brand-red" />
-                <span>Quick WhatsApp: <b>{DISPLAY_WHATSAPP_NUMBER}</b></span>
+                <span>Quick WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
               </div>
             </div>
           </div>

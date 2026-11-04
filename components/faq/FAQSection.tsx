@@ -14,7 +14,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 bg-brand-cream border-t border-brand-border scroll-mt-20 overflow-hidden">
+    <section id="faq" className="relative py-14 sm:py-20 lg:py-24 bg-brand-cream border-t border-brand-border scroll-mt-20 overflow-hidden">
       {/* Ambient burgundy background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-brand-burgundy/25 blur-[160px] pointer-events-none" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -24,10 +24,10 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/15 text-brand-red border border-brand-red/30 text-xs font-bold uppercase tracking-widest mb-3">
-            <HelpCircle className="w-3.5 h-3.5" /> Frequently Asked Questions
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <HelpCircle className="w-3.5 h-3.5 text-brand-red" /> Frequently Asked Questions
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             EVERYTHING YOU NEED TO KNOW
@@ -52,7 +52,7 @@ export default function FAQSection() {
                   delay: shouldReduceMotion ? 0 : index * 0.06,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="rounded-2xl bg-brand-card border border-brand-border overflow-hidden transition-colors shadow-card-depth"
+                className="rounded-xl bg-brand-card/90 border border-white/10 overflow-hidden transition-all shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
               >
                 <button
                   onClick={() => toggle(index)}

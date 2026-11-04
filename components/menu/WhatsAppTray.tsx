@@ -55,16 +55,16 @@ export default function WhatsAppTray() {
 
   return (
     <>
-      {/* Floating Pill Trigger (Visible when tray has items and drawer is closed) */}
+      {/* Floating Glassmorphic Order Tray Trigger */}
       {totalItems > 0 && !isTrayOpen && (
         <button
           onClick={() => setIsTrayOpen(true)}
-          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold shadow-2xl shadow-green-950/80 border border-emerald-400/30 transform hover:scale-105 active:scale-95 transition-all"
+          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-5 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold shadow-[0_8px_30px_rgba(5,150,105,0.4),inset_0_1px_0_rgba(255,255,255,0.2)] border border-emerald-400/40 backdrop-blur-md transform hover:scale-105 active:scale-95 transition-all"
           aria-label="View WhatsApp Order Tray"
         >
           <div className="relative">
             <ShoppingBag className="w-5 h-5" />
-            <span className="absolute -top-2 -right-2.5 w-5 h-5 rounded-full bg-brand-red text-white text-[11px] font-black flex items-center justify-center border-2 border-brand-surface">
+            <span className="absolute -top-2 -right-2.5 min-w-[20px] h-5 px-1 rounded-md bg-brand-red text-white text-[10px] font-black flex items-center justify-center border border-white/20 shadow-sm">
               {totalItems}
             </span>
           </div>
@@ -80,15 +80,15 @@ export default function WhatsAppTray() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md transition-opacity"
           onClick={() => setIsTrayOpen(false)}
         >
           <div
-            className="fixed inset-y-0 right-0 w-full max-w-md bg-brand-surface border-l border-brand-border shadow-2xl flex flex-col justify-between overflow-hidden"
+            className="fixed inset-y-0 right-0 w-full max-w-md bg-brand-surface border-l border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="p-5 border-b border-brand-border flex items-center justify-between bg-brand-card">
+            <div className="p-5 border-b border-white/10 flex items-center justify-between bg-brand-card">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
                   <ShoppingBag className="w-5 h-5" />
@@ -104,7 +104,7 @@ export default function WhatsAppTray() {
               </div>
               <button
                 onClick={() => setIsTrayOpen(false)}
-                className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors"
+                className="p-2 rounded-xl text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 aria-label="Close tray"
               >
                 <X className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function WhatsAppTray() {
             <div className="flex-1 overflow-y-auto p-5 space-y-4">
               {tray.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-6 text-neutral-400 space-y-3">
-                  <div className="w-16 h-16 rounded-full bg-brand-card flex items-center justify-center text-3xl">
+                  <div className="w-16 h-16 rounded-xl bg-brand-card border border-white/10 flex items-center justify-center text-3xl shadow-inner">
                     🌯
                   </div>
                   <h4 className="text-base font-semibold text-white">Your tray is empty</h4>
@@ -128,7 +128,7 @@ export default function WhatsAppTray() {
                       const menuEl = document.getElementById("menu");
                       if (menuEl) menuEl.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="mt-2 px-4 py-2 rounded-xl bg-brand-red text-white text-xs font-bold uppercase tracking-wider hover:bg-brand-red-light transition-colors"
+                    className="mt-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-opacity"
                   >
                     Browse Menu
                   </button>
@@ -136,7 +136,7 @@ export default function WhatsAppTray() {
               ) : (
                 <>
                   {/* Outlet Selection */}
-                  <div className="p-3.5 rounded-2xl bg-brand-card border border-brand-border">
+                  <div className="p-3.5 rounded-xl bg-brand-card border border-brand-border">
                     <label className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">
                       <MapPin className="w-3.5 h-3.5 text-brand-red" /> Ordering Outlet (Pune):
                     </label>
@@ -158,7 +158,7 @@ export default function WhatsAppTray() {
                     {tray.map(({ item, quantity }) => (
                       <div
                         key={item.id}
-                        className="flex items-center justify-between p-3 rounded-2xl bg-brand-card border border-brand-border group hover:border-neutral-700 transition-colors"
+                        className="flex items-center justify-between p-3 rounded-xl bg-brand-card border border-brand-border group hover:border-neutral-700 transition-colors"
                       >
                         <div className="flex-1 min-w-0 pr-3">
                           <div className="flex items-center gap-1.5">
@@ -249,7 +249,7 @@ export default function WhatsAppTray() {
 
                 <button
                   onClick={handleSendWhatsAppOrder}
-                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-lg shadow-green-950/40 transform active:scale-98 transition-all"
+                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-lg shadow-green-950/40 transform active:scale-98 transition-all"
                 >
                   <Send className="w-4 h-4 fill-current" />
                   Send Order to WhatsApp ({DISPLAY_WHATSAPP_NUMBER})

@@ -24,7 +24,7 @@ function MenuCardComponent({ item }: MenuCardProps) {
       exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12, scale: 0.98 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       whileHover={shouldReduceMotion ? {} : { y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
-      className="group relative flex flex-col justify-between bg-brand-card hover:bg-brand-card-hover border border-brand-border hover:border-brand-border-hover rounded-3xl overflow-hidden shadow-card-depth hover:shadow-glow-red transition-colors duration-300"
+      className="group relative flex flex-col justify-between bg-brand-card hover:bg-brand-card-hover border border-white/10 hover:border-brand-red/40 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300"
     >
       {/* Top Image Container with Fixed Dimensions */}
       <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-neutral-950">
@@ -43,7 +43,7 @@ function MenuCardComponent({ item }: MenuCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-black/20 to-transparent opacity-85 pointer-events-none" />
 
         {/* Veg / Non-Veg Indicator Badge */}
-        <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/10 z-10">
+        <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 z-10 shadow-md">
           <span
             className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center ${
               item.isVeg ? "border-brand-veg" : "border-brand-non-veg"
@@ -62,7 +62,7 @@ function MenuCardComponent({ item }: MenuCardProps) {
 
         {/* Highlight Badge if any */}
         {item.badge && (
-          <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-red text-white text-[10px] font-black uppercase tracking-wider shadow-lg border border-red-400/40 group-hover:scale-105 transition-transform z-10">
+          <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-gradient-to-r from-brand-red to-brand-orange text-white text-[10px] font-black uppercase tracking-wider shadow-[0_2px_10px_rgba(229,9,20,0.4)] border border-white/20 group-hover:scale-105 transition-transform z-10">
             <Sparkles className="w-2.5 h-2.5" />
             {item.badge}
           </div>
@@ -103,8 +103,8 @@ function MenuCardComponent({ item }: MenuCardProps) {
             onClick={() => addToTray(item)}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all transform active:scale-95 ${
               existingInTray
-                ? "bg-emerald-600/90 text-white hover:bg-emerald-500 shadow-md"
-                : "bg-brand-red hover:bg-brand-red-light text-white shadow-glow-red hover:shadow-glow-red-lg hover:-translate-y-0.5"
+                ? "bg-gradient-to-r from-emerald-600 to-green-600 text-white border border-emerald-400/30 shadow-md"
+                : "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_14px_rgba(229,9,20,0.35)] hover:shadow-[0_4px_20px_rgba(229,9,20,0.5)] hover:-translate-y-0.5"
             }`}
             aria-label={`Add ${item.name} to order`}
           >

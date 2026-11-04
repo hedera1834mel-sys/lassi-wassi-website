@@ -101,7 +101,7 @@ export default function HeroSection() {
           >
             {/* Top Pune Street Food Badge */}
             <motion.div variants={badgeVariants} className="inline-block max-w-full">
-              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-card/95 via-[#230d0d]/90 to-brand-card/95 border border-white/10 hover:border-brand-orange/30 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-300">
+              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-brand-card/95 via-[#230d0d]/90 to-brand-card/95 border border-white/10 hover:border-brand-orange/30 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-300">
                 {/* Subtle ambient warm ember pip */}
                 <span className="flex items-center justify-center w-5 h-5 rounded-lg bg-gradient-to-br from-brand-red/25 via-brand-orange/20 to-transparent border border-brand-red/40 text-brand-orange shrink-0 shadow-sm">
                   <Flame className="w-3 h-3 text-brand-orange fill-current" />
@@ -143,11 +143,11 @@ export default function HeroSection() {
             {/* CTAs Row */}
             <motion.div
               variants={itemVariants}
-              className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 sm:gap-4"
             >
               <button
                 onClick={handleOrderNow}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-brand-red-light hover:to-orange-500 text-white font-black text-sm tracking-widest uppercase shadow-glow-red hover:shadow-glow-red-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-brand-red-light hover:to-orange-500 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_4px_24px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group"
               >
                 <span>ORDER NOW</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -155,7 +155,7 @@ export default function HeroSection() {
 
               <button
                 onClick={handleExploreMenu}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-surface/80 hover:bg-brand-surface border border-white/15 hover:border-white/30 text-white font-bold text-sm tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-md"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg sm:rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
               >
                 EXPLORE MENU
               </button>
@@ -164,14 +164,14 @@ export default function HeroSection() {
             {/* Outlet Quick Highlights Bar */}
             <motion.div
               variants={itemVariants}
-              className="pt-6 border-t border-brand-border/60 flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-6 text-xs text-neutral-400"
+              className="pt-5 sm:pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs text-neutral-300"
             >
-              <div className="flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-brand-red" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+                <MapPin className="w-3.5 h-3.5 text-brand-red shrink-0" />
                 <span>4 Pune Hubs: <b>Kothrud</b> • <b>Sinhgad Rd</b> • <b>Katraj</b> • <b>Bavdhan</b></span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+                <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
               </div>
             </motion.div>
@@ -185,7 +185,7 @@ export default function HeroSection() {
             className="lg:col-span-5 relative flex justify-center"
           >
             {/* Glowing Backdrop Circle */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-red/30 via-brand-orange/20 to-transparent blur-3xl scale-95 pointer-events-none" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-brand-red/25 via-brand-orange/15 to-transparent blur-3xl scale-95 pointer-events-none" />
 
             <motion.div
               animate={shouldReduceMotion ? {} : { y: [0, -8, 0] }}
@@ -193,7 +193,7 @@ export default function HeroSection() {
               className="relative w-full max-w-md sm:max-w-lg aspect-square"
             >
               {/* Main Food Imagery Ring */}
-              <div className="relative w-full h-full rounded-3xl sm:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-card-depth bg-brand-surface/60 group">
+              <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-card-depth bg-brand-surface/60 group">
                 <Image
                   src="/images/site/hero-shawarma.webp"
                   alt="Lassi Wassi Authentic Shawarma and Street Food Pune"
@@ -207,23 +207,23 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
                 {/* Floating Tag over Image */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3.5 sm:p-4 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
                   <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-brand-orange">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-brand-orange block">
                       Signature Arabian Recipe
                     </span>
-                    <h3 className="text-base sm:text-lg font-bold text-white">
+                    <h3 className="text-sm sm:text-lg font-bold text-white">
                       Special Cheese Shawarma
                     </h3>
-                    <p className="text-xs text-neutral-400">
+                    <p className="text-[11px] sm:text-xs text-neutral-400">
                       Slow-roasted chicken • Garlic toum • Pita
                     </p>
                   </div>
-                  <div className="text-right">
-                    <span className="text-xl sm:text-2xl font-display font-black text-white">
+                  <div className="text-right shrink-0 ml-2">
+                    <span className="text-lg sm:text-2xl font-display font-black text-white block">
                       ₹160
                     </span>
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                    <span className="inline-block px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
                       Bestseller
                     </span>
                   </div>
@@ -234,9 +234,9 @@ export default function HeroSection() {
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute top-2 left-2 sm:-top-6 sm:-left-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-brand-card/95 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
+                className="absolute top-2 left-2 sm:-top-6 sm:-left-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
               >
-                <span className="p-1.5 sm:p-2 rounded-xl bg-brand-red/20 text-brand-red shrink-0">
+                <span className="p-1.5 sm:p-2 rounded-lg bg-brand-red/20 text-brand-red shrink-0 border border-brand-red/30">
                   <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                 </span>
                 <div>
@@ -249,9 +249,9 @@ export default function HeroSection() {
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-brand-card/95 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
+                className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
               >
-                <span className="p-1.5 sm:p-2 rounded-xl bg-amber-500/20 text-amber-400 shrink-0">
+                <span className="p-1.5 sm:p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 border border-amber-500/30">
                   <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
                 <div>

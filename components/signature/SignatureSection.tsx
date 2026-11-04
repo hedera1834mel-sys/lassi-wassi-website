@@ -86,7 +86,7 @@ export default function SignatureSection() {
   };
 
   return (
-    <section className="relative py-24 bg-brand-surface border-y border-brand-border overflow-hidden">
+    <section className="relative py-14 sm:py-20 lg:py-24 bg-brand-surface border-y border-brand-border overflow-hidden">
       {/* Background ambient accents with subtle burgundy glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-burgundy/25 blur-[150px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-brand-burgundy-dark/25 blur-[150px] pointer-events-none" />
@@ -99,10 +99,10 @@ export default function SignatureSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/15 text-brand-red border border-brand-red/30 text-xs font-bold uppercase tracking-widest mb-3">
-            <Flame className="w-3.5 h-3.5" /> Iconic Pillars of Taste
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <Flame className="w-3.5 h-3.5 text-brand-red" /> Iconic Pillars of Taste
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             THE FLAVOUR YOU KEEP COMING BACK FOR
@@ -127,7 +127,7 @@ export default function SignatureSection() {
               }}
               whileHover={shouldReduceMotion ? {} : { y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
               onClick={() => handleScrollToMenu(sig.categoryFilterId)}
-              className="group cursor-pointer relative bg-brand-card hover:bg-brand-card-hover border border-brand-border hover:border-brand-red/50 rounded-3xl overflow-hidden shadow-card-depth hover:shadow-glow-red transition-colors duration-300"
+              className="group cursor-pointer relative bg-brand-card hover:bg-brand-card-hover border border-white/10 hover:border-brand-red/40 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300"
             >
               {/* Media Container with Parallax Zoom */}
               <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-neutral-900">
@@ -144,14 +144,14 @@ export default function SignatureSection() {
                 <motion.div
                   animate={shouldReduceMotion ? {} : { y: [0, -4, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/10 text-xs font-bold uppercase tracking-wider text-brand-orange shadow-lg"
+                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-brand-orange shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                 >
                   <Sparkles className="w-3 h-3" />
                   {sig.badge}
                 </motion.div>
 
                 {/* Price Note Top Right */}
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-red text-white text-xs font-bold tracking-wide uppercase shadow-lg">
+                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-extrabold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.4)]">
                   {sig.priceNote}
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function SignatureSection() {
                   <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">
                     {sig.category}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red/50 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-sm">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>

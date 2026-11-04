@@ -39,7 +39,7 @@ export default function OrderModal() {
       onClick={() => setIsOrderModalOpen(false)}
     >
       <div
-        className="relative w-full max-w-lg bg-brand-surface border border-brand-border rounded-3xl p-6 sm:p-8 shadow-glow-red overflow-hidden"
+        className="relative w-full max-w-lg bg-brand-surface/95 backdrop-blur-xl border border-white/10 rounded-xl p-6 sm:p-8 shadow-[0_12px_40px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.08)] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Ambient Top Glow */}
@@ -48,7 +48,7 @@ export default function OrderModal() {
         {/* Close Button */}
         <button
           onClick={() => setIsOrderModalOpen(false)}
-          className="absolute top-5 right-5 p-2 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-xl text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -56,8 +56,8 @@ export default function OrderModal() {
 
         {/* Modal Header */}
         <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-brand-red/15 text-brand-red border border-brand-red/30 mb-2">
-            <Sparkles className="w-3.5 h-3.5" /> Order Direct & Save
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold tracking-wider uppercase bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 mb-2 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-brand-red" /> Order Direct & Save
           </span>
           <h2 id="order-modal-title" className="text-2xl sm:text-3xl font-display uppercase tracking-wider text-white">
             Choose How You Want to Order
@@ -82,8 +82,8 @@ export default function OrderModal() {
                 }}
                 className={`flex items-center gap-2 p-2.5 rounded-xl border text-xs font-medium transition-all text-left ${
                   selectedOutletId === outlet.id
-                    ? "bg-brand-red/15 border-brand-red text-white shadow-glow-red"
-                    : "bg-brand-card border-brand-border text-neutral-300 hover:border-neutral-600"
+                    ? "bg-brand-red/20 border-brand-red/60 text-white shadow-sm"
+                    : "bg-brand-card/80 border-white/10 text-neutral-300 hover:border-white/20"
                 }`}
               >
                 <MapPin className={`w-3.5 h-3.5 shrink-0 ${selectedOutletId === outlet.id ? "text-brand-red" : "text-neutral-400"}`} />
@@ -98,16 +98,16 @@ export default function OrderModal() {
           {/* WhatsApp Direct */}
           <button
             onClick={handleWhatsApp}
-            className="w-full group relative flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold shadow-lg transition-all transform active:scale-[0.99]"
+            className="w-full group relative flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white font-bold shadow-[0_4px_16px_rgba(5,150,105,0.4)] border border-emerald-400/40 transition-all transform active:scale-[0.99]"
           >
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-black/20 rounded-xl">
+              <div className="p-2.5 bg-black/20 rounded-xl border border-white/10">
                 <MessageCircle className="w-6 h-6 fill-current" />
               </div>
               <div className="text-left">
                 <div className="text-sm font-black uppercase tracking-wide flex items-center gap-2">
                   Order via WhatsApp
-                  <span className="text-[10px] uppercase px-1.5 py-0.5 rounded bg-white text-emerald-800 font-bold">Fastest</span>
+                  <span className="text-[10px] uppercase px-1.5 py-0.5 rounded-md bg-white text-emerald-800 font-bold">Fastest</span>
                 </div>
                 <div className="text-xs text-emerald-100 font-normal">
                   {DISPLAY_WHATSAPP_NUMBER} • Takeaway & Delivery
@@ -120,10 +120,10 @@ export default function OrderModal() {
           {/* Swiggy */}
           <button
             onClick={handleSwiggy}
-            className="w-full group flex items-center justify-between p-4 rounded-2xl bg-[#FC8019]/10 hover:bg-[#FC8019]/20 border border-[#FC8019]/30 text-white font-medium transition-all active:scale-[0.99]"
+            className="w-full group flex items-center justify-between p-4 rounded-xl bg-[#FC8019]/10 hover:bg-[#FC8019]/20 border border-[#FC8019]/30 text-white font-medium transition-all active:scale-[0.99]"
           >
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#FC8019] flex items-center justify-center font-black text-white text-lg">
+              <div className="w-11 h-11 rounded-xl bg-[#FC8019] flex items-center justify-center font-black text-white text-lg shadow-sm">
                 S
               </div>
               <div className="text-left">
@@ -137,10 +137,10 @@ export default function OrderModal() {
           {/* Zomato */}
           <button
             onClick={handleZomato}
-            className="w-full group flex items-center justify-between p-4 rounded-2xl bg-[#E23744]/10 hover:bg-[#E23744]/20 border border-[#E23744]/30 text-white font-medium transition-all active:scale-[0.99]"
+            className="w-full group flex items-center justify-between p-4 rounded-xl bg-[#E23744]/10 hover:bg-[#E23744]/20 border border-[#E23744]/30 text-white font-medium transition-all active:scale-[0.99]"
           >
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#E23744] flex items-center justify-center font-black text-white text-lg italic">
+              <div className="w-11 h-11 rounded-xl bg-[#E23744] flex items-center justify-center font-black text-white text-lg italic shadow-sm">
                 Z
               </div>
               <div className="text-left">
