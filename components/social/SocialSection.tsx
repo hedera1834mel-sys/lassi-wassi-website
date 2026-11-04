@@ -142,11 +142,11 @@ export default function SocialSection() {
             href="https://www.instagram.com/lassiwassiofficial/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-8 py-3.5 sm:py-4 max-w-full rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
+            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-8 py-3.5 sm:py-4 max-w-full rounded-xl bg-black/60 hover:bg-black/80 border border-pink-500/40 hover:border-pink-500/70 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest backdrop-blur-xl shadow-[0_4px_24px_rgba(236,72,153,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
-            <Instagram className="w-4 h-4 shrink-0" />
+            <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
             <span className="truncate">FOLLOW @lassiwassiofficial ON INSTAGRAM</span>
-            <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+            <ExternalLink className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
           </a>
         </div>
       </div>

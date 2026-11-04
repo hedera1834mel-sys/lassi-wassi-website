@@ -151,7 +151,7 @@ export default function SignatureSection() {
                 </motion.div>
 
                 {/* Price Note Top Right */}
-                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-extrabold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.4)]">
+                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-brand-red/30 backdrop-blur-md border border-brand-red/50 text-white text-xs font-bold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.3)]">
                   {sig.priceNote}
                 </div>
               </div>

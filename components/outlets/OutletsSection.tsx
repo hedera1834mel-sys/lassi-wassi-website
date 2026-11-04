@@ -142,9 +142,9 @@ export default function OutletsSection() {
 
                   <button
                     onClick={() => handleOrderOutlet(outlet.name)}
-                    className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:opacity-95 text-white text-xs font-black uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.35)] border border-white/20 flex items-center justify-center gap-2 transition-all transform active:scale-95"
+                    className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] border border-brand-red/45 hover:border-brand-red/60 backdrop-blur-xl flex items-center justify-center gap-2 transition-all transform active:scale-95"
                   >
-                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <ShoppingBag className="w-3.5 h-3.5 text-brand-orange" />
                     <span>Order Here</span>
                   </button>
                 </div>

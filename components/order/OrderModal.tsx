@@ -98,7 +98,7 @@ export default function OrderModal() {
           {/* WhatsApp Direct */}
           <button
             onClick={handleWhatsApp}
-            className="w-full group relative flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white font-bold shadow-[0_4px_16px_rgba(5,150,105,0.4)] border border-emerald-400/40 transition-all transform active:scale-[0.99]"
+            className="w-full group relative flex items-center justify-between p-4 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/85 text-white font-bold shadow-[0_4px_16px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.1)] border border-emerald-500/45 hover:border-emerald-400/60 backdrop-blur-xl transition-all transform active:scale-[0.99]"
           >
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-black/20 rounded-xl border border-white/10">

@@ -147,15 +147,16 @@ export default function HeroSection() {
             >
               <button
                 onClick={handleOrderNow}
-                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-brand-red-light hover:to-orange-500 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_4px_24px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_4px_24px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 hover:border-brand-red/70 backdrop-blur-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 group"
               >
+                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,0.9)] group-hover:scale-125 transition-transform" />
                 <span>ORDER NOW</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={handleExploreMenu}
-                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg sm:rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
               >
                 EXPLORE MENU
               </button>
@@ -206,57 +207,57 @@ export default function HeroSection() {
                 {/* Gradient vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-                {/* Floating Tag over Image */}
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3.5 sm:p-4 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  <div>
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-brand-orange block">
+                {/* Minimal Sleek Floating Tag over Image */}
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-6 sm:left-6 sm:right-6 p-2.5 sm:p-4 rounded-xl bg-black/70 backdrop-blur-xl border border-white/10 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="min-w-0 pr-2">
+                    <span className="hidden sm:block text-[10px] uppercase font-bold tracking-wider text-brand-orange">
                       Signature Arabian Recipe
                     </span>
-                    <h3 className="text-sm sm:text-lg font-bold text-white">
+                    <h3 className="text-xs sm:text-lg font-bold text-white tracking-wide truncate">
                       Special Cheese Shawarma
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-neutral-400">
+                    <p className="hidden sm:block text-xs text-neutral-400 mt-0.5">
                       Slow-roasted chicken • Garlic toum • Pita
                     </p>
                   </div>
-                  <div className="text-right shrink-0 ml-2">
-                    <span className="text-lg sm:text-2xl font-display font-black text-white block">
+                  <div className="text-right shrink-0 flex items-center sm:flex-col sm:items-end gap-1.5 sm:gap-0">
+                    <span className="text-base sm:text-2xl font-display font-black text-white">
                       ₹160
                     </span>
-                    <span className="inline-block px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
+                    <span className="inline-block px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
                       Bestseller
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Pill Top Left */}
+              {/* Floating Chip Top Left - Desktop Only */}
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute top-2 left-2 sm:-top-6 sm:-left-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
+                className="hidden sm:flex absolute -top-6 -left-6 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] items-center gap-2.5"
               >
-                <span className="p-1.5 sm:p-2 rounded-lg bg-brand-red/20 text-brand-red shrink-0 border border-brand-red/30">
-                  <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                <span className="p-2 rounded-lg bg-brand-red/20 text-brand-red shrink-0 border border-brand-red/30">
+                  <Flame className="w-4 h-4 fill-current" />
                 </span>
                 <div>
-                  <div className="text-[10px] sm:text-[11px] font-bold uppercase text-white">Carved Fresh Daily</div>
-                  <div className="text-[9px] sm:text-[10px] text-neutral-400">100% Whole Muscle Meat</div>
+                  <div className="text-[11px] font-bold uppercase text-white">Carved Fresh Daily</div>
+                  <div className="text-[10px] text-neutral-400">100% Whole Muscle Meat</div>
                 </div>
               </motion.div>
 
-              {/* Floating Pill Bottom Right */}
+              {/* Floating Chip Bottom Right - Desktop Only */}
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl bg-black/75 backdrop-blur-md border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)] flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
+                className="hidden sm:flex absolute -bottom-6 -right-6 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] items-center gap-2.5"
               >
-                <span className="p-1.5 sm:p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 border border-amber-500/30">
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 border border-amber-500/30">
+                  <Sparkles className="w-4 h-4" />
                 </span>
                 <div>
-                  <div className="text-[10px] sm:text-[11px] font-bold uppercase text-white">Thick Hand-Churned</div>
-                  <div className="text-[9px] sm:text-[10px] text-neutral-400">Sweet & Mango Lassis</div>
+                  <div className="text-[11px] font-bold uppercase text-white">Thick Hand-Churned</div>
+                  <div className="text-[10px] text-neutral-400">Sweet & Mango Lassis</div>
                 </div>
               </motion.div>
             </motion.div>

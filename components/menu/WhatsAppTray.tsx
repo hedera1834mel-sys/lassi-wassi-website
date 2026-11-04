@@ -59,19 +59,19 @@ export default function WhatsAppTray() {
       {totalItems > 0 && !isTrayOpen && (
         <button
           onClick={() => setIsTrayOpen(true)}
-          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-5 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold shadow-[0_8px_30px_rgba(5,150,105,0.4),inset_0_1px_0_rgba(255,255,255,0.2)] border border-emerald-400/40 backdrop-blur-md transform hover:scale-105 active:scale-95 transition-all"
+          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-4 sm:px-5 py-3 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/85 text-white font-bold shadow-[0_8px_30px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-emerald-500/45 hover:border-emerald-400/60 backdrop-blur-xl transform hover:scale-105 active:scale-95 transition-all"
           aria-label="View WhatsApp Order Tray"
         >
           <div className="relative">
-            <ShoppingBag className="w-5 h-5" />
+            <ShoppingBag className="w-5 h-5 text-emerald-400" />
             <span className="absolute -top-2 -right-2.5 min-w-[20px] h-5 px-1 rounded-md bg-brand-red text-white text-[10px] font-black flex items-center justify-center border border-white/20 shadow-sm">
               {totalItems}
             </span>
           </div>
-          <span className="text-sm uppercase tracking-wide">
+          <span className="text-xs sm:text-sm uppercase tracking-wide">
             View Order ({totalPrice > 0 ? `₹${totalPrice}` : "Tray"})
           </span>
-          <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
         </button>
       )}
 
@@ -128,7 +128,7 @@ export default function WhatsAppTray() {
                       const menuEl = document.getElementById("menu");
                       if (menuEl) menuEl.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="mt-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-opacity"
+                    className="mt-2 px-4 py-2 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 border border-brand-red/45 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all"
                   >
                     Browse Menu
                   </button>
@@ -249,7 +249,7 @@ export default function WhatsAppTray() {
 
                 <button
                   onClick={handleSendWhatsAppOrder}
-                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-lg shadow-green-950/40 transform active:scale-98 transition-all"
+                  className="w-full py-3.5 px-4 rounded-xl bg-emerald-950/85 hover:bg-emerald-900/90 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.12)] border border-emerald-500/40 backdrop-blur-xl transform active:scale-98 transition-all"
                 >
                   <Send className="w-4 h-4 fill-current" />
                   Send Order to WhatsApp ({DISPLAY_WHATSAPP_NUMBER})

@@ -118,8 +118,9 @@ export default function Navbar() {
           {/* Primary Order Now Button */}
           <button
             onClick={handleOrderClick}
-            className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange hover:from-brand-red-light hover:to-orange-500 text-white font-black text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.2),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 hover:border-brand-red/70 backdrop-blur-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
           >
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_6px_rgba(229,9,20,0.9)] group-hover:scale-125 transition-transform" />
             <span>ORDER NOW</span>
           </button>
 
@@ -172,8 +173,9 @@ export default function Navbar() {
             <div className="pt-3 space-y-3">
               <button
                 onClick={handleOrderClick}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/15 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 backdrop-blur-xl flex items-center justify-center gap-2"
               >
+                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,0.9)]" />
                 <span>ORDER NOW (WHATSAPP / APPS)</span>
               </button>
 

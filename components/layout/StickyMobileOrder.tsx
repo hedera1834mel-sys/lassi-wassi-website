@@ -34,20 +34,21 @@ export default function StickyMobileOrder() {
       {totalItems > 0 ? (
         <button
           onClick={() => setIsTrayOpen(true)}
-          className="flex-[2] py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 text-white font-black text-xs uppercase tracking-wider flex items-center justify-between border border-emerald-400/30 shadow-[0_4px_16px_rgba(5,150,105,0.4),inset_0_1px_0_rgba(255,255,255,0.2)] active:scale-95 transition-transform"
+          className="flex-[2] py-3 px-4 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/85 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-between border border-emerald-500/40 backdrop-blur-xl shadow-[0_4px_16px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] active:scale-95 transition-transform"
         >
           <div className="flex items-center gap-1.5">
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-4 h-4 text-emerald-400" />
             <span>Tray ({totalItems})</span>
           </div>
-          <span>₹{totalPrice}</span>
+          <span className="font-display font-black text-emerald-300">₹{totalPrice}</span>
         </button>
       ) : (
         <button
           onClick={handleOrderNow}
-          className="flex-[2] py-3 px-4 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 shadow-[0_4px_20px_rgba(229,9,20,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] active:scale-95 transition-transform"
+          className="flex-[2] py-3 px-4 rounded-xl bg-brand-red/30 hover:bg-brand-red/40 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-brand-red/50 backdrop-blur-xl shadow-[0_4px_20px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] active:scale-95 transition-transform"
         >
-          <MessageCircle className="w-4 h-4 fill-current" />
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_6px_rgba(229,9,20,0.9)]" />
+          <MessageCircle className="w-4 h-4 text-brand-orange fill-current" />
           <span>ORDER NOW</span>
         </button>
       )}

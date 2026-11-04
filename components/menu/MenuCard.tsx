@@ -62,7 +62,7 @@ function MenuCardComponent({ item }: MenuCardProps) {
 
         {/* Highlight Badge if any */}
         {item.badge && (
-          <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-gradient-to-r from-brand-red to-brand-orange text-white text-[10px] font-black uppercase tracking-wider shadow-[0_2px_10px_rgba(229,9,20,0.4)] border border-white/20 group-hover:scale-105 transition-transform z-10">
+          <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-red/35 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider shadow-[0_2px_10px_rgba(229,9,20,0.3)] border border-brand-red/50 group-hover:scale-105 transition-transform z-10">
             <Sparkles className="w-2.5 h-2.5" />
             {item.badge}
           </div>
@@ -101,10 +101,10 @@ function MenuCardComponent({ item }: MenuCardProps) {
 
           <button
             onClick={() => addToTray(item)}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all transform active:scale-95 ${
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all transform active:scale-95 ${
               existingInTray
-                ? "bg-gradient-to-r from-emerald-600 to-green-600 text-white border border-emerald-400/30 shadow-md"
-                : "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_14px_rgba(229,9,20,0.35)] hover:shadow-[0_4px_20px_rgba(229,9,20,0.5)] hover:-translate-y-0.5"
+                ? "bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 shadow-sm"
+                : "bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white border border-brand-red/45 hover:border-brand-red/60 shadow-[0_2px_12px_rgba(229,9,20,0.25)] hover:-translate-y-0.5"
             }`}
             aria-label={`Add ${item.name} to order`}
           >

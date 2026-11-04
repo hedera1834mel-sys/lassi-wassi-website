@@ -112,7 +112,7 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("ALL")}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "ALL"
-                  ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_2px_10px_rgba(229,9,20,0.35)]"
+                  ? "bg-brand-red/30 text-white border border-brand-red/50 shadow-[0_2px_10px_rgba(229,9,20,0.25)]"
                   : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
@@ -122,7 +122,7 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("NON-VEG")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "NON-VEG"
-                  ? "bg-brand-non-veg text-white border border-red-400/40 shadow-md shadow-red-950"
+                  ? "bg-brand-non-veg/40 text-white border border-red-500/50 shadow-md shadow-red-950/40 backdrop-blur-md"
                   : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
@@ -132,7 +132,7 @@ export default function MenuSection() {
               onClick={() => handleDietFilterChange("VEG")}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${
                 dietFilter === "VEG"
-                  ? "bg-brand-veg text-white border border-emerald-400/40 shadow-md shadow-emerald-950"
+                  ? "bg-brand-veg/40 text-white border border-emerald-500/50 shadow-md shadow-emerald-950/40 backdrop-blur-md"
                   : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/10"
               }`}
             >
@@ -154,7 +154,7 @@ export default function MenuSection() {
               onClick={() => handleCategorySelect("ALL")}
               className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
                 selectedCategory === "ALL"
-                  ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_16px_rgba(229,9,20,0.35)]"
+                  ? "bg-brand-red/30 text-white border border-brand-red/50 backdrop-blur-xl shadow-[0_4px_16px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.12)]"
                   : "bg-brand-card/90 hover:bg-white/10 text-neutral-300 border border-white/10"
               }`}
             >
@@ -173,7 +173,7 @@ export default function MenuSection() {
                   onClick={() => handleCategorySelect(cat.id)}
                   className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
                     isSelected
-                      ? "bg-gradient-to-r from-brand-red to-brand-orange text-white border border-white/20 shadow-[0_4px_16px_rgba(229,9,20,0.35)]"
+                      ? "bg-brand-red/30 text-white border border-brand-red/50 backdrop-blur-xl shadow-[0_4px_16px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.12)]"
                       : "bg-brand-card/90 hover:bg-white/10 text-neutral-300 border border-white/10"
                   }`}
                 >
@@ -202,7 +202,7 @@ export default function MenuSection() {
                 setDietFilter("ALL");
                 setSearchQuery("");
               }}
-              className="mt-4 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-red to-brand-orange border border-white/20 text-white text-xs font-bold uppercase tracking-wider hover:opacity-95 transition-opacity"
+              className="mt-4 px-4 py-2 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 border border-brand-red/45 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-[0_2px_12px_rgba(229,9,20,0.2)] transition-all"
             >
               Reset Filters
             </button>
