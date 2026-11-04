@@ -105,33 +105,33 @@ export default function Navbar() {
           {totalItems > 0 && (
             <button
               onClick={() => setIsTrayOpen(true)}
-              className="relative p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-white hover:border-brand-orange/40 backdrop-blur-md transition-colors shadow-sm"
+              className="relative p-2.5 rounded-full bg-white/[0.06] border border-white/15 text-white hover:border-brand-orange/40 backdrop-blur-xl transition-colors shadow-sm"
               aria-label="Open tray"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-md bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
+              <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
                 {totalItems}
               </span>
             </button>
           )}
 
-          {/* Primary Order Now Button */}
+          {/* Primary Order Now Button - Floating Glass Capsule */}
           <button
             onClick={handleOrderClick}
-            className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.2),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 hover:border-brand-red/70 backdrop-blur-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
+            className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.08] hover:bg-brand-red/30 active:bg-brand-red/40 text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/20 hover:border-brand-red/50 backdrop-blur-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_6px_rgba(229,9,20,0.9)] group-hover:scale-125 transition-transform" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,1)] group-hover:scale-125 transition-transform" />
             <span>ORDER NOW</span>
           </button>
 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-colors"
+            className="lg:hidden p-2 rounded-full text-neutral-300 hover:text-white bg-white/[0.06] border border-white/15 hover:bg-white/[0.12] backdrop-blur-md transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -173,7 +173,7 @@ export default function Navbar() {
             <div className="pt-3 space-y-3">
               <button
                 onClick={handleOrderClick}
-                className="w-full py-3.5 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 backdrop-blur-xl flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-full bg-brand-red/30 hover:bg-brand-red/40 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/20 hover:border-brand-red/50 backdrop-blur-2xl flex items-center justify-center gap-2"
               >
                 <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,0.9)]" />
                 <span>ORDER NOW (WHATSAPP / APPS)</span>

@@ -74,7 +74,7 @@ export default function SocialSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
             <Instagram className="w-3.5 h-3.5 text-pink-400" /> Instagram Gallery
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
@@ -142,7 +142,7 @@ export default function SocialSection() {
             href="https://www.instagram.com/lassiwassiofficial/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-8 py-3.5 sm:py-4 max-w-full rounded-xl bg-black/60 hover:bg-black/80 border border-pink-500/40 hover:border-pink-500/70 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest backdrop-blur-xl shadow-[0_4px_24px_rgba(236,72,153,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
+            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-9 py-3.5 sm:py-4 max-w-full rounded-full bg-black/60 hover:bg-black/80 border border-pink-500/40 hover:border-pink-500/70 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest backdrop-blur-2xl shadow-[0_4px_24px_rgba(236,72,153,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
             <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
             <span className="truncate">FOLLOW @lassiwassiofficial ON INSTAGRAM</span>

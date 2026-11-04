@@ -59,12 +59,12 @@ export default function WhatsAppTray() {
       {totalItems > 0 && !isTrayOpen && (
         <button
           onClick={() => setIsTrayOpen(true)}
-          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-4 sm:px-5 py-3 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/85 text-white font-bold shadow-[0_8px_30px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-emerald-500/45 hover:border-emerald-400/60 backdrop-blur-xl transform hover:scale-105 active:scale-95 transition-all"
+          className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3 px-5 py-3 rounded-full bg-emerald-950/80 hover:bg-emerald-900/85 text-white font-bold shadow-[0_8px_30px_rgba(5,150,105,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-emerald-500/50 hover:border-emerald-400/70 backdrop-blur-2xl transform hover:scale-105 active:scale-95 transition-all"
           aria-label="View WhatsApp Order Tray"
         >
           <div className="relative">
             <ShoppingBag className="w-5 h-5 text-emerald-400" />
-            <span className="absolute -top-2 -right-2.5 min-w-[20px] h-5 px-1 rounded-md bg-brand-red text-white text-[10px] font-black flex items-center justify-center border border-white/20 shadow-sm">
+            <span className="absolute -top-2 -right-2.5 min-w-[20px] h-5 px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center border border-white/20 shadow-sm">
               {totalItems}
             </span>
           </div>
@@ -104,7 +104,7 @@ export default function WhatsAppTray() {
               </div>
               <button
                 onClick={() => setIsTrayOpen(false)}
-                className="p-2 rounded-xl text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                className="p-2 rounded-full text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 aria-label="Close tray"
               >
                 <X className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function WhatsAppTray() {
             <div className="flex-1 overflow-y-auto p-5 space-y-4">
               {tray.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-6 text-neutral-400 space-y-3">
-                  <div className="w-16 h-16 rounded-xl bg-brand-card border border-white/10 flex items-center justify-center text-3xl shadow-inner">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-card border border-white/10 flex items-center justify-center text-3xl shadow-inner">
                     🌯
                   </div>
                   <h4 className="text-base font-semibold text-white">Your tray is empty</h4>
@@ -128,7 +128,7 @@ export default function WhatsAppTray() {
                       const menuEl = document.getElementById("menu");
                       if (menuEl) menuEl.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="mt-2 px-4 py-2 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 border border-brand-red/45 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-md transition-all"
+                    className="mt-2 px-5 py-2.5 rounded-full bg-brand-red/30 hover:bg-brand-red/45 border border-brand-red/50 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition-all"
                   >
                     Browse Menu
                   </button>
@@ -249,7 +249,7 @@ export default function WhatsAppTray() {
 
                 <button
                   onClick={handleSendWhatsAppOrder}
-                  className="w-full py-3.5 px-4 rounded-xl bg-emerald-950/85 hover:bg-emerald-900/90 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(5,150,105,0.25),inset_0_1px_0_rgba(255,255,255,0.12)] border border-emerald-500/40 backdrop-blur-xl transform active:scale-98 transition-all"
+                  className="w-full py-3.5 px-6 rounded-full bg-emerald-950/85 hover:bg-emerald-900/95 text-white font-bold text-sm tracking-wide uppercase flex items-center justify-center gap-2 shadow-[0_8px_30px_rgba(5,150,105,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-emerald-500/50 backdrop-blur-2xl transform active:scale-98 transition-all"
                 >
                   <Send className="w-4 h-4 fill-current" />
                   Send Order to WhatsApp ({DISPLAY_WHATSAPP_NUMBER})

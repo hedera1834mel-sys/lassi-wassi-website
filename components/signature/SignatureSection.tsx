@@ -101,7 +101,7 @@ export default function SignatureSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
             <Flame className="w-3.5 h-3.5 text-brand-red" /> Iconic Pillars of Taste
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
@@ -144,14 +144,14 @@ export default function SignatureSection() {
                 <motion.div
                   animate={shouldReduceMotion ? {} : { y: [0, -4, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-wider text-brand-orange shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-xl border border-white/20 text-xs font-bold uppercase tracking-wider text-brand-orange shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                 >
                   <Sparkles className="w-3 h-3" />
                   {sig.badge}
                 </motion.div>
 
                 {/* Price Note Top Right */}
-                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-brand-red/30 backdrop-blur-md border border-brand-red/50 text-white text-xs font-bold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.3)]">
+                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-brand-red/35 backdrop-blur-xl border border-brand-red/50 text-white text-xs font-bold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.3)]">
                   {sig.priceNote}
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function SignatureSection() {
                   <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">
                     {sig.category}
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red/50 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-sm">
+                  <div className="w-8 h-8 rounded-full bg-white/[0.08] border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-sm">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function SignatureSection() {
                   {sig.ingredients.map((ing, iIdx) => (
                     <span
                       key={iIdx}
-                      className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-neutral-300 group-hover:border-brand-red/30 transition-colors"
+                      className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-white/[0.05] border border-white/15 text-neutral-300 group-hover:border-brand-red/40 transition-colors"
                     >
                       {ing}
                     </span>

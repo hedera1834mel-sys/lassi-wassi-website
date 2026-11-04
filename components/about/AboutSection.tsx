@@ -82,7 +82,7 @@ export default function AboutSection() {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
               <Sparkles className="w-3.5 h-3.5 text-brand-red" /> Our Story & Passion
             </div>
 
@@ -118,7 +118,7 @@ export default function AboutSection() {
                     }}
                     className="p-4 rounded-xl bg-brand-card/90 border border-white/10 hover:border-brand-red/30 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-brand-red/15 text-brand-red border border-brand-red/30 flex items-center justify-center mb-2.5">
+                    <div className="w-8 h-8 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/35 flex items-center justify-center mb-2.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="text-sm font-bold text-white uppercase tracking-wider">

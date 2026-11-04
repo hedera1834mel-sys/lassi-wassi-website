@@ -38,7 +38,7 @@ export default function OutletsSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
             <motion.span
               animate={shouldReduceMotion ? {} : { scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -85,7 +85,7 @@ export default function OutletsSection() {
                       <MapPin className="w-3.5 h-3.5" /> {outlet.area}
                     </span>
                     {outlet.badge && (
-                      <span className="px-2.5 py-0.5 rounded-lg bg-brand-red/20 text-brand-red border border-brand-red/40 text-[10px] font-black uppercase tracking-wider shadow-sm">
+                      <span className="px-3 py-0.5 rounded-full bg-brand-red/25 text-brand-red border border-brand-red/45 text-[10px] font-black uppercase tracking-wider shadow-sm">
                         {outlet.badge}
                       </span>
                     )}
@@ -120,7 +120,7 @@ export default function OutletsSection() {
                       {outlet.popularFor.map((item, itemIdx) => (
                         <span
                           key={itemIdx}
-                          className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-neutral-300"
+                          className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/15 text-[11px] text-neutral-300"
                         >
                           {item}
                         </span>
@@ -129,11 +129,11 @@ export default function OutletsSection() {
                   </div>
                 </div>
 
-                {/* Card Actions Row */}
+                {/* Card Actions Row - Floating Glass Capsule Buttons */}
                 <div className="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center gap-3">
                   <button
                     onClick={() => handleDirections(outlet.name, outlet.googleMapsQuery)}
-                    className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all group shadow-sm"
+                    className="w-full sm:w-1/2 py-3 px-5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/20 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all group backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"
                   >
                     <Navigation className="w-3.5 h-3.5 text-brand-orange group-hover:scale-110 transition-transform" />
                     <span>Get Directions</span>
@@ -142,7 +142,7 @@ export default function OutletsSection() {
 
                   <button
                     onClick={() => handleOrderOutlet(outlet.name)}
-                    className="w-full sm:w-1/2 py-3 px-4 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(229,9,20,0.2),inset_0_1px_0_rgba(255,255,255,0.12)] border border-brand-red/45 hover:border-brand-red/60 backdrop-blur-xl flex items-center justify-center gap-2 transition-all transform active:scale-95"
+                    className="w-full sm:w-1/2 py-3 px-5 rounded-full bg-brand-red/30 hover:bg-brand-red/45 active:bg-brand-red/55 text-white text-xs font-bold uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-brand-red/50 hover:border-brand-red/70 backdrop-blur-2xl flex items-center justify-center gap-2 transition-all transform active:scale-95"
                   >
                     <ShoppingBag className="w-3.5 h-3.5 text-brand-orange" />
                     <span>Order Here</span>

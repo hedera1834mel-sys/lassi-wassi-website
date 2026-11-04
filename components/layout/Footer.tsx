@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://www.instagram.com/lassiwassiofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-brand-surface border border-brand-border flex items-center justify-center text-white hover:text-brand-red hover:border-brand-red transition-colors"
+                className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/15 flex items-center justify-center text-white hover:text-brand-red hover:border-brand-red backdrop-blur-md transition-colors"
                 aria-label="Instagram @lassiwassiofficial"
               >
                 <Instagram className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function Footer() {
                 href={buildGeneralWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-brand-surface border border-brand-border flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-400 transition-colors"
+                className="w-9 h-9 rounded-full bg-white/[0.05] border border-white/15 flex items-center justify-center text-white hover:text-emerald-400 hover:border-emerald-400 backdrop-blur-md transition-colors"
                 aria-label="WhatsApp Order"
               >
                 <Phone className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function Footer() {
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-brand-surface border border-brand-border text-neutral-300 hover:text-white transition-colors"
+              className="p-2.5 rounded-full bg-white/[0.05] border border-white/15 text-neutral-300 hover:text-white backdrop-blur-md transition-colors"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />

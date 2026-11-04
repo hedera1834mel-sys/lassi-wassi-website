@@ -48,7 +48,7 @@ export default function OrderModal() {
         {/* Close Button */}
         <button
           onClick={() => setIsOrderModalOpen(false)}
-          className="absolute top-5 right-5 p-2 rounded-xl text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full text-neutral-400 hover:text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -56,7 +56,7 @@ export default function OrderModal() {
 
         {/* Modal Header */}
         <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold tracking-wider uppercase bg-black/40 backdrop-blur-md text-brand-orange border border-white/10 mb-2 shadow-sm">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-white/[0.05] backdrop-blur-xl text-brand-orange border border-white/15 mb-2 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-red" /> Order Direct & Save
           </span>
           <h2 id="order-modal-title" className="text-2xl sm:text-3xl font-display uppercase tracking-wider text-white">

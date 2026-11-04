@@ -101,9 +101,9 @@ export default function HeroSection() {
           >
             {/* Top Pune Street Food Badge */}
             <motion.div variants={badgeVariants} className="inline-block max-w-full">
-              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-brand-card/95 via-[#230d0d]/90 to-brand-card/95 border border-white/10 hover:border-brand-orange/30 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-300">
+              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/15 hover:border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl transition-all duration-300">
                 {/* Subtle ambient warm ember pip */}
-                <span className="flex items-center justify-center w-5 h-5 rounded-lg bg-gradient-to-br from-brand-red/25 via-brand-orange/20 to-transparent border border-brand-red/40 text-brand-orange shrink-0 shadow-sm">
+                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-red/25 border border-brand-red/40 text-brand-orange shrink-0 shadow-sm">
                   <Flame className="w-3 h-3 text-brand-orange fill-current" />
                 </span>
 
@@ -140,23 +140,23 @@ export default function HeroSection() {
               Freshly made shawarmas, loaded burgers, creamy lassi and more. Street-food energy crafted with restaurant-grade freshness in Pune.
             </motion.p>
 
-            {/* CTAs Row */}
+            {/* CTAs Row - Pure Floating Glass Buttons */}
             <motion.div
               variants={itemVariants}
               className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 sm:gap-4"
             >
               <button
                 onClick={handleOrderNow}
-                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-brand-red/25 hover:bg-brand-red/35 active:bg-brand-red/40 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_4px_24px_rgba(229,9,20,0.25),inset_0_1px_0_rgba(255,255,255,0.15)] border border-brand-red/45 hover:border-brand-red/70 backdrop-blur-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 group"
+                className="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-brand-red/30 hover:bg-brand-red/45 active:bg-brand-red/55 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_8px_30px_rgba(229,9,20,0.35),inset_0_1px_1px_rgba(255,255,255,0.35)] border border-white/25 hover:border-brand-red/60 backdrop-blur-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 group"
               >
-                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,0.9)] group-hover:scale-125 transition-transform" />
+                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_10px_rgba(229,9,20,1)] group-hover:scale-125 transition-transform" />
                 <span>ORDER NOW</span>
                 <ArrowRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={handleExploreMenu}
-                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
+                className="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white/[0.06] hover:bg-white/[0.12] active:bg-white/[0.16] border border-white/20 hover:border-white/35 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-2xl shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)]"
               >
                 EXPLORE MENU
               </button>
@@ -167,11 +167,11 @@ export default function HeroSection() {
               variants={itemVariants}
               className="pt-5 sm:pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs text-neutral-300"
             >
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm">
                 <MapPin className="w-3.5 h-3.5 text-brand-red shrink-0" />
                 <span>4 Pune Hubs: <b>Kothrud</b> • <b>Sinhgad Rd</b> • <b>Katraj</b> • <b>Bavdhan</b></span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm">
                 <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
               </div>
