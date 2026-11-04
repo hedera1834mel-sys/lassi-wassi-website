@@ -49,7 +49,7 @@ export default function MenuSection() {
 
 
   return (
-    <section id="menu" className="relative py-24 bg-brand-dark-burgundy bg-gradient-to-b from-brand-burgundy/20 via-transparent to-transparent scroll-mt-20">
+    <section id="menu" className="relative py-24 bg-brand-dark-burgundy bg-gradient-to-b from-brand-burgundy/20 via-transparent to-transparent scroll-mt-20 overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-1/4 w-[32rem] h-[32rem] bg-brand-burgundy/25 blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[28rem] h-[28rem] bg-brand-burgundy-dark/30 blur-[150px] pointer-events-none" />
@@ -147,9 +147,9 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mb-10 -mx-4 px-4 sm:mx-0 sm:px-0"
+          className="relative mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 max-w-[100vw] sm:max-w-full"
         >
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar w-full max-w-full">
             <button
               onClick={() => handleCategorySelect("ALL")}
               className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${

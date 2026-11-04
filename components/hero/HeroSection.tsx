@@ -100,15 +100,25 @@ export default function HeroSection() {
             className="lg:col-span-7 text-center lg:text-left space-y-6"
           >
             {/* Top Pune Street Food Badge */}
-            <motion.div variants={badgeVariants} className="inline-block">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-surface/90 border border-brand-red/30 shadow-glow-red backdrop-blur-md">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red" />
+            <motion.div variants={badgeVariants} className="inline-block max-w-full">
+              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-brand-card/95 via-[#230d0d]/90 to-brand-card/95 border border-white/10 hover:border-brand-orange/30 shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition-all duration-300">
+                {/* Subtle ambient warm ember pip */}
+                <span className="flex items-center justify-center w-5 h-5 rounded-lg bg-gradient-to-br from-brand-red/25 via-brand-orange/20 to-transparent border border-brand-red/40 text-brand-orange shrink-0 shadow-sm">
+                  <Flame className="w-3 h-3 text-brand-orange fill-current" />
                 </span>
-                <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-white/90">
-                  Shawarma • Burgers • Lassi • Shakes • Pune
-                </span>
+
+                {/* Typographic categories */}
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-[10px] sm:text-xs font-bold tracking-wide sm:tracking-wider uppercase text-cream/90">
+                  <span className="hover:text-white transition-colors">Shawarma</span>
+                  <span className="text-brand-orange/60 font-black">•</span>
+                  <span className="hover:text-white transition-colors">Burgers</span>
+                  <span className="text-brand-orange/60 font-black">•</span>
+                  <span className="hover:text-white transition-colors">Lassi</span>
+                  <span className="text-brand-orange/60 font-black">•</span>
+                  <span className="hover:text-white transition-colors">Shakes</span>
+                  <span className="text-brand-orange/60 font-black">•</span>
+                  <span className="text-brand-orange hover:text-brand-orange-light font-extrabold transition-colors">Pune</span>
+                </div>
               </div>
             </motion.div>
 
@@ -224,14 +234,14 @@ export default function HeroSection() {
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 px-4 py-2.5 rounded-2xl bg-brand-card/90 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2.5"
+                className="absolute top-2 left-2 sm:-top-6 sm:-left-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-brand-card/95 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
               >
-                <span className="p-2 rounded-xl bg-brand-red/20 text-brand-red">
-                  <Flame className="w-4 h-4 fill-current" />
+                <span className="p-1.5 sm:p-2 rounded-xl bg-brand-red/20 text-brand-red shrink-0">
+                  <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                 </span>
                 <div>
-                  <div className="text-[11px] font-bold uppercase text-white">Carved Fresh Daily</div>
-                  <div className="text-[10px] text-neutral-400">100% Whole Muscle Meat</div>
+                  <div className="text-[10px] sm:text-[11px] font-bold uppercase text-white">Carved Fresh Daily</div>
+                  <div className="text-[9px] sm:text-[10px] text-neutral-400">100% Whole Muscle Meat</div>
                 </div>
               </motion.div>
 
@@ -239,14 +249,14 @@ export default function HeroSection() {
               <motion.div
                 animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 px-4 py-2.5 rounded-2xl bg-brand-card/90 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2.5"
+                className="absolute bottom-2 right-2 sm:-bottom-6 sm:-right-6 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-brand-card/95 border border-brand-border backdrop-blur-md shadow-2xl flex items-center gap-2 sm:gap-2.5 max-w-[85%] sm:max-w-none"
               >
-                <span className="p-2 rounded-xl bg-amber-500/20 text-amber-400">
-                  <Sparkles className="w-4 h-4" />
+                <span className="p-1.5 sm:p-2 rounded-xl bg-amber-500/20 text-amber-400 shrink-0">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
                 <div>
-                  <div className="text-[11px] font-bold uppercase text-white">Thick Hand-Churned</div>
-                  <div className="text-[10px] text-neutral-400">Sweet & Mango Lassis</div>
+                  <div className="text-[10px] sm:text-[11px] font-bold uppercase text-white">Thick Hand-Churned</div>
+                  <div className="text-[9px] sm:text-[10px] text-neutral-400">Sweet & Mango Lassis</div>
                 </div>
               </motion.div>
             </motion.div>

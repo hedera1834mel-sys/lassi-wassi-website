@@ -126,12 +126,12 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className="min-h-screen bg-brand-dark-burgundy text-neutral-100 font-sans selection:bg-brand-red selection:text-white">
+      <body className="min-h-screen w-full max-w-full overflow-x-hidden bg-brand-dark-burgundy text-neutral-100 font-sans selection:bg-brand-red selection:text-white">
         <GoogleAnalytics />
         <OrderProvider>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-screen w-full max-w-full flex-col overflow-x-hidden">
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />
             <StickyMobileOrder />
             <WhatsAppTray />

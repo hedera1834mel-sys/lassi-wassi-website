@@ -24,7 +24,7 @@ export default function OutletsSection() {
   };
 
   return (
-    <section id="outlets" className="relative py-24 bg-brand-dark-burgundy border-b border-brand-border scroll-mt-20">
+    <section id="outlets" className="relative py-24 bg-brand-dark-burgundy border-b border-brand-border scroll-mt-20 overflow-hidden">
       {/* Background radial highlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] bg-brand-burgundy/25 blur-[160px] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-red/10 blur-[150px] pointer-events-none" />

@@ -40,8 +40,8 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Visual Left Showcase with Viewport Reveal */}
           <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
@@ -76,8 +76,8 @@ export default function AboutSection() {
 
           {/* Narrative Right Content with Viewport Reveal */}
           <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6"

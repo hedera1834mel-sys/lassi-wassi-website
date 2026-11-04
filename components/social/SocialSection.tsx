@@ -137,16 +137,16 @@ export default function SocialSection() {
         </div>
 
         {/* Big Follow Button */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 px-2">
           <a
             href="https://www.instagram.com/lassiwassiofficial/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black text-xs uppercase tracking-widest shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
+            className="inline-flex items-center justify-center gap-2 sm:gap-2.5 px-4 sm:px-8 py-3.5 sm:py-4 max-w-full rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 text-white font-black text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all"
           >
-            <Instagram className="w-4 h-4" />
-            <span>FOLLOW @lassiwassiofficial ON INSTAGRAM</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <Instagram className="w-4 h-4 shrink-0" />
+            <span className="truncate">FOLLOW @lassiwassiofficial ON INSTAGRAM</span>
+            <ExternalLink className="w-3.5 h-3.5 shrink-0" />
           </a>
         </div>
       </div>
