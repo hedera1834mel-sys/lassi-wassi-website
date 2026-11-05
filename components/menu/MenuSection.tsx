@@ -75,65 +75,67 @@ export default function MenuSection() {
           </p>
         </motion.div>
 
-        {/* Filter Controls Row: Search + Diet Toggle */}
+        {/* Filter Controls Row: Search + Diet Toggle (Clean Minimal Typography) */}
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 bg-brand-card/80 border border-white/10 p-3.5 sm:p-4 rounded-xl backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+          className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-white/10"
         >
-          {/* Search Box */}
-          <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
+          {/* Search Box - Minimal Underline Input */}
+          <div className="relative w-full md:w-80">
+            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
-              placeholder="Search shawarma, burger, mango lassi, coffee..."
-              className="w-full bg-brand-surface/90 border border-white/15 rounded-full pl-11 pr-4 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand-red transition-all"
+              placeholder="Search shawarma, burger, lassi..."
+              className="w-full bg-transparent border-b border-white/20 pl-7 pr-12 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand-orange transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => handleSearchChange("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-white"
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-white py-1"
               >
                 Clear
               </button>
             )}
           </div>
 
-          {/* Diet Filter Chips */}
-          <div className="flex items-center gap-2 w-full md:w-auto justify-end">
-            <span className="text-xs uppercase tracking-wider font-semibold text-neutral-400 flex items-center gap-1 mr-1">
-              <Filter className="w-3.5 h-3.5" /> Filter:
+          {/* Diet Filter - Clean Text Links */}
+          <div className="flex items-center gap-3 w-full md:w-auto justify-start md:justify-end text-xs uppercase tracking-wider font-semibold">
+            <span className="text-neutral-500 flex items-center gap-1">
+              <Filter className="w-3 h-3" /> Diet:
             </span>
             <button
               onClick={() => handleDietFilterChange("ALL")}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`py-1 transition-colors ${
                 dietFilter === "ALL"
-                  ? "bg-brand-red/35 text-white border border-brand-red/55 shadow-[0_2px_10px_rgba(229,9,20,0.3),inset_0_1px_0_rgba(255,255,255,0.2)]"
-                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/15"
+                  ? "text-brand-orange font-bold underline underline-offset-4"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               All
             </button>
+            <span className="text-neutral-600">•</span>
             <button
               onClick={() => handleDietFilterChange("NON-VEG")}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 py-1 transition-colors ${
                 dietFilter === "NON-VEG"
-                  ? "bg-brand-non-veg/40 text-white border border-red-500/50 shadow-md shadow-red-950/40 backdrop-blur-md"
-                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/15"
+                  ? "text-brand-non-veg font-bold underline underline-offset-4"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-brand-non-veg" /> Non-Veg
             </button>
+            <span className="text-neutral-600">•</span>
             <button
               onClick={() => handleDietFilterChange("VEG")}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              className={`flex items-center gap-1.5 py-1 transition-colors ${
                 dietFilter === "VEG"
-                  ? "bg-brand-veg/40 text-white border border-emerald-500/50 shadow-md shadow-emerald-950/40 backdrop-blur-md"
-                  : "bg-white/[0.05] text-neutral-400 hover:text-white border border-white/15"
+                  ? "text-brand-veg font-bold underline underline-offset-4"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
               <span className="w-2 h-2 rounded-full bg-brand-veg" /> Pure Veg
@@ -141,7 +143,7 @@ export default function MenuSection() {
           </div>
         </motion.div>
 
-        {/* Categories Tab Navigation */}
+        {/* Categories Tab Navigation - Sleek Editorial Text Strip (No Boxes) */}
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -149,19 +151,19 @@ export default function MenuSection() {
           transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="relative mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 max-w-[100vw] sm:max-w-full"
         >
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar w-full max-w-full">
+          <div className="flex items-center gap-6 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar w-full max-w-full border-b border-white/[0.08]">
             <button
               onClick={() => handleCategorySelect("ALL")}
-              className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
+              className={`shrink-0 flex items-center gap-1.5 pb-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors border-b-2 ${
                 selectedCategory === "ALL"
-                  ? "bg-brand-red/35 text-white border border-brand-red/55 backdrop-blur-2xl shadow-[0_4px_16px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]"
-                  : "bg-white/[0.05] hover:bg-white/[0.1] text-neutral-300 border border-white/15 backdrop-blur-xl"
+                  ? "text-white border-brand-orange"
+                  : "text-neutral-400 hover:text-neutral-200 border-transparent"
               }`}
             >
               <span>🔥</span>
               <span>All Items</span>
-              <span className="px-1.5 py-0.5 rounded-full bg-black/40 text-[10px]">
-                {MENU_ITEMS.length}
+              <span className="text-[10px] text-neutral-500 font-normal">
+                ({MENU_ITEMS.length})
               </span>
             </button>
 
@@ -171,16 +173,16 @@ export default function MenuSection() {
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.id)}
-                  className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform active:scale-95 ${
+                  className={`shrink-0 flex items-center gap-1.5 pb-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors border-b-2 ${
                     isSelected
-                      ? "bg-brand-red/35 text-white border border-brand-red/55 backdrop-blur-2xl shadow-[0_4px_16px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)]"
-                      : "bg-white/[0.05] hover:bg-white/[0.1] text-neutral-300 border border-white/15 backdrop-blur-xl"
+                      ? "text-white border-brand-orange"
+                      : "text-neutral-400 hover:text-neutral-200 border-transparent"
                   }`}
                 >
                   <span>{cat.icon}</span>
                   <span>{cat.label}</span>
-                  <span className="px-1.5 py-0.5 rounded-full bg-black/40 text-[10px]">
-                    {cat.count}
+                  <span className="text-[10px] text-neutral-500 font-normal">
+                    ({cat.count})
                   </span>
                 </button>
               );
@@ -202,9 +204,9 @@ export default function MenuSection() {
                 setDietFilter("ALL");
                 setSearchQuery("");
               }}
-              className="mt-4 px-5 py-2.5 rounded-full bg-brand-red/30 hover:bg-brand-red/45 border border-brand-red/50 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-xl shadow-[0_2px_12px_rgba(229,9,20,0.25)] transition-all"
+              className="mt-4 inline-flex items-center gap-1.5 py-1 px-2 text-xs font-bold uppercase tracking-wider text-brand-orange hover:text-white transition-colors"
             >
-              Reset Filters
+              <span>Reset Filters →</span>
             </button>
           </div>
         ) : (

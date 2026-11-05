@@ -101,8 +101,9 @@ export default function SignatureSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
-            <Flame className="w-3.5 h-3.5 text-brand-red" /> Iconic Pillars of Taste
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-orange mb-3">
+            <Flame className="w-3.5 h-3.5 text-brand-red" />
+            <span>Iconic Pillars of Taste</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             THE FLAVOUR YOU KEEP COMING BACK FOR
@@ -140,18 +141,13 @@ export default function SignatureSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-black/40 to-transparent pointer-events-none" />
 
-                {/* Floating Badge Top Left */}
-                <motion.div
-                  animate={shouldReduceMotion ? {} : { y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
-                  className="absolute top-4 left-4 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-xl border border-white/20 text-xs font-bold uppercase tracking-wider text-brand-orange shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
-                >
-                  <Sparkles className="w-3 h-3" />
+                {/* Minimal Top Badges */}
+                <div className="absolute top-3.5 left-3.5 flex items-center gap-1 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider text-brand-orange">
+                  <Sparkles className="w-2.5 h-2.5" />
                   {sig.badge}
-                </motion.div>
+                </div>
 
-                {/* Price Note Top Right */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-brand-red/35 backdrop-blur-xl border border-brand-red/50 text-white text-xs font-bold tracking-wide uppercase shadow-[0_4px_12px_rgba(229,9,20,0.3)]">
+                <div className="absolute top-3.5 right-3.5 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-white text-[10px] font-bold tracking-wide uppercase">
                   {sig.priceNote}
                 </div>
               </div>
@@ -162,7 +158,7 @@ export default function SignatureSection() {
                   <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">
                     {sig.category}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-white/[0.08] border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-sm">
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.08] border border-white/20 flex items-center justify-center text-white group-hover:bg-brand-red group-hover:border-brand-red/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shadow-sm">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
@@ -184,7 +180,7 @@ export default function SignatureSection() {
                   {sig.ingredients.map((ing, iIdx) => (
                     <span
                       key={iIdx}
-                      className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-white/[0.05] border border-white/15 text-neutral-300 group-hover:border-brand-red/40 transition-colors"
+                      className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white/[0.05] border border-white/15 text-neutral-300 group-hover:border-brand-red/40 transition-colors"
                     >
                       {ing}
                     </span>

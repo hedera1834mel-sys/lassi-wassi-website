@@ -100,45 +100,46 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-4 sm:gap-6">
           {/* WhatsApp Quick Order Tray Trigger */}
           {totalItems > 0 && (
             <button
               onClick={() => setIsTrayOpen(true)}
-              className="relative p-2.5 rounded-full bg-white/[0.06] border border-white/15 text-white hover:border-brand-orange/40 backdrop-blur-xl transition-colors shadow-sm"
+              className="relative p-1 text-white hover:text-brand-orange transition-colors"
               aria-label="Open tray"
             >
-              <ShoppingBag className="w-4 h-4" />
-              <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
+              <ShoppingBag className="w-5 h-5" />
+              <span className="absolute -top-1.5 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
                 {totalItems}
               </span>
             </button>
           )}
 
-          {/* Primary Order Now Button - Floating Glass Capsule */}
+          {/* Primary Order Now - Pure Text Link (No Box / No Border) */}
           <button
             onClick={handleOrderClick}
-            className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.08] hover:bg-brand-red/30 active:bg-brand-red/40 text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/20 hover:border-brand-red/50 backdrop-blur-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 group"
+            className="hidden sm:inline-flex items-center gap-2 py-1 px-1 text-xs font-black uppercase tracking-widest text-brand-orange hover:text-white transition-colors group"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,1)] group-hover:scale-125 transition-transform" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-red group-hover:scale-125 transition-transform" />
             <span>ORDER NOW</span>
+            <span className="text-brand-orange group-hover:translate-x-1 transition-transform">→</span>
           </button>
 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full text-neutral-300 hover:text-white bg-white/[0.06] border border-white/15 hover:bg-white/[0.12] backdrop-blur-md transition-colors"
+            className="lg:hidden p-1.5 text-neutral-300 hover:text-white transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Animated Slide-down Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-black/92 backdrop-blur-2xl border-b border-white/10 p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] animate-fade-in">
+        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-2xl border-b border-white/10 p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] animate-fade-in">
           <div className="flex flex-col space-y-4">
             <div className="flex items-center gap-3 pb-3 border-b border-white/10">
               <div className="relative w-10 h-10 flex-shrink-0">
@@ -169,17 +170,17 @@ export default function Navbar() {
               </button>
             ))}
 
-            {/* Mobile Actions */}
-            <div className="pt-3 space-y-3">
+            {/* Mobile Actions - Pure Text Links */}
+            <div className="pt-2 space-y-3">
               <button
                 onClick={handleOrderClick}
-                className="w-full py-3.5 rounded-full bg-brand-red/30 hover:bg-brand-red/40 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/20 hover:border-brand-red/50 backdrop-blur-2xl flex items-center justify-center gap-2"
+                className="w-full py-2.5 text-left text-xs sm:text-sm font-black uppercase tracking-widest text-brand-orange hover:text-white flex items-center gap-2 transition-colors border-b border-white/[0.08]"
               >
-                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_8px_rgba(229,9,20,0.9)]" />
-                <span>ORDER NOW (WHATSAPP / APPS)</span>
+                <span className="w-2 h-2 rounded-full bg-brand-red" />
+                <span>ORDER NOW (WHATSAPP / APPS) →</span>
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-xs text-neutral-400 pt-1">
+              <div className="flex items-center gap-2 text-xs text-neutral-400 pt-1">
                 <Phone className="w-3.5 h-3.5 text-brand-red" />
                 <span>Quick WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
               </div>

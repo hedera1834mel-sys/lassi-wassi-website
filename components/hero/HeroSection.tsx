@@ -99,32 +99,25 @@ export default function HeroSection() {
             animate="visible"
             className="lg:col-span-7 text-center lg:text-left space-y-6"
           >
-            {/* Top Pune Street Food Badge */}
+            {/* Top Pune Street Food Badge - Pure Editorial Typography (No Box / No Border) */}
             <motion.div variants={badgeVariants} className="inline-block max-w-full">
-              <div className="group relative inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.05] hover:bg-white/[0.08] border border-white/15 hover:border-white/25 shadow-[0_4px_20px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-2xl transition-all duration-300">
-                {/* Subtle ambient warm ember pip */}
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-brand-red/25 border border-brand-red/40 text-brand-orange shrink-0 shadow-sm">
-                  <Flame className="w-3 h-3 text-brand-orange fill-current" />
-                </span>
-
-                {/* Typographic categories */}
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-[10px] sm:text-xs font-bold tracking-wide sm:tracking-wider uppercase text-cream/90">
-                  <span className="hover:text-white transition-colors">Shawarma</span>
-                  <span className="text-brand-orange/60 font-black">•</span>
-                  <span className="hover:text-white transition-colors">Burgers</span>
-                  <span className="text-brand-orange/60 font-black">•</span>
-                  <span className="hover:text-white transition-colors">Lassi</span>
-                  <span className="text-brand-orange/60 font-black">•</span>
-                  <span className="hover:text-white transition-colors">Shakes</span>
-                  <span className="text-brand-orange/60 font-black">•</span>
-                  <span className="text-brand-orange hover:text-brand-orange-light font-extrabold transition-colors">Pune</span>
-                </div>
+              <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-orange">
+                <Flame className="w-3.5 h-3.5 text-brand-orange fill-current shrink-0" />
+                <span className="text-neutral-300 hover:text-white transition-colors">Shawarma</span>
+                <span className="text-brand-orange/60">•</span>
+                <span className="text-neutral-300 hover:text-white transition-colors">Burgers</span>
+                <span className="text-brand-orange/60">•</span>
+                <span className="text-neutral-300 hover:text-white transition-colors">Lassi</span>
+                <span className="text-brand-orange/60">•</span>
+                <span className="text-neutral-300 hover:text-white transition-colors">Shakes</span>
+                <span className="text-brand-orange/60">•</span>
+                <span className="text-brand-orange font-extrabold">Pune</span>
               </div>
             </motion.div>
 
-            {/* Cinematic Main Headline with Staggered Line Reveal */}
+            {/* Cinematic Main Headline with clamp() & Proper Line Height */}
             <motion.div variants={itemVariants} className="space-y-1">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-display font-black tracking-tight uppercase text-cream leading-[0.92]">
+              <h1 className="text-[clamp(2.5rem,7vw,5.5rem)] font-display font-black tracking-tight uppercase text-cream leading-[1.06] sm:leading-[1.02]">
                 TASTE THAT <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-brand-orange to-brand-pink">
                   PULLS YOU IN
@@ -135,43 +128,44 @@ export default function HeroSection() {
             {/* Supporting Copy */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-xl text-neutral-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
+              className="text-sm sm:text-lg text-neutral-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed mt-4 sm:mt-5"
             >
               Freshly made shawarmas, loaded burgers, creamy lassi and more. Street-food energy crafted with restaurant-grade freshness in Pune.
             </motion.p>
 
-            {/* CTAs Row - Pure Floating Glass Buttons */}
+            {/* CTAs Row - Pure Minimal Text Links (Zero Boxes / Zero Pill Shapes) */}
             <motion.div
               variants={itemVariants}
-              className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 sm:gap-4"
+              className="pt-3 sm:pt-4 flex flex-row items-center justify-center lg:justify-start gap-6 sm:gap-8"
             >
               <button
                 onClick={handleOrderNow}
-                className="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-brand-red/30 hover:bg-brand-red/45 active:bg-brand-red/55 text-white font-black text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase shadow-[0_8px_30px_rgba(229,9,20,0.35),inset_0_1px_1px_rgba(255,255,255,0.35)] border border-white/25 hover:border-brand-red/60 backdrop-blur-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 group"
+                className="group inline-flex items-center gap-2.5 py-2 px-1 text-xs sm:text-sm font-black uppercase tracking-widest text-brand-orange hover:text-white transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-brand-red shadow-[0_0_10px_rgba(229,9,20,1)] group-hover:scale-125 transition-transform" />
+                <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
                 <span>ORDER NOW</span>
-                <ArrowRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-brand-orange group-hover:translate-x-1.5 transition-transform" />
               </button>
 
               <button
                 onClick={handleExploreMenu}
-                className="w-full sm:w-auto px-8 sm:px-9 py-3.5 sm:py-4 rounded-full bg-white/[0.06] hover:bg-white/[0.12] active:bg-white/[0.16] border border-white/20 hover:border-white/35 text-cream font-bold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase transition-all transform hover:-translate-y-0.5 active:translate-y-0 backdrop-blur-2xl shadow-[0_8px_24px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)]"
+                className="group inline-flex items-center gap-2 py-2 px-1 text-xs sm:text-sm font-bold uppercase tracking-widest text-neutral-300 hover:text-brand-orange transition-colors"
               >
-                EXPLORE MENU
+                <span>EXPLORE MENU</span>
+                <span className="text-brand-orange group-hover:translate-x-1 transition-transform">→</span>
               </button>
             </motion.div>
 
-            {/* Outlet Quick Highlights Bar */}
+            {/* Outlet Quick Highlights Bar - Clean Inline Typography */}
             <motion.div
               variants={itemVariants}
-              className="pt-5 sm:pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs text-neutral-300"
+              className="pt-5 sm:pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-neutral-400"
             >
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm">
+              <div className="inline-flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-brand-red shrink-0" />
-                <span>4 Pune Hubs: <b>Kothrud</b> • <b>Sinhgad Rd</b> • <b>Katraj</b> • <b>Bavdhan</b></span>
+                <span>4 Pune Hubs: <span className="text-white font-medium">Kothrud • Sinhgad Rd • Katraj • Bavdhan</span></span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md shadow-sm">
+              <div className="inline-flex items-center gap-1.5">
                 <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
               </div>
@@ -194,7 +188,7 @@ export default function HeroSection() {
               className="relative w-full max-w-md sm:max-w-lg aspect-square"
             >
               {/* Main Food Imagery Ring */}
-              <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-card-depth bg-brand-surface/60 group">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-brand-surface/60 group">
                 <Image
                   src="/images/site/hero-shawarma.webp"
                   alt="Lassi Wassi Authentic Shawarma and Street Food Pune"
@@ -204,62 +198,29 @@ export default function HeroSection() {
                   className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
 
-                {/* Gradient vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                {/* Subtle gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-                {/* Minimal Sleek Floating Tag over Image */}
-                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-6 sm:left-6 sm:right-6 p-2.5 sm:p-4 rounded-xl bg-black/70 backdrop-blur-xl border border-white/10 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  <div className="min-w-0 pr-2">
-                    <span className="hidden sm:block text-[10px] uppercase font-bold tracking-wider text-brand-orange">
+                {/* Clean Editorial Caption (No Box Badges) */}
+                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 flex items-end justify-between">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-brand-orange block">
                       Signature Arabian Recipe
                     </span>
-                    <h3 className="text-xs sm:text-lg font-bold text-white tracking-wide truncate">
+                    <h3 className="text-sm sm:text-lg font-bold text-white tracking-wide mt-0.5">
                       Special Cheese Shawarma
                     </h3>
-                    <p className="hidden sm:block text-xs text-neutral-400 mt-0.5">
+                    <p className="text-[11px] sm:text-xs text-neutral-400 mt-0.5">
                       Slow-roasted chicken • Garlic toum • Pita
                     </p>
                   </div>
-                  <div className="text-right shrink-0 flex items-center sm:flex-col sm:items-end gap-1.5 sm:gap-0">
-                    <span className="text-base sm:text-2xl font-display font-black text-white">
+                  <div className="text-right">
+                    <span className="text-lg sm:text-2xl font-display font-black text-brand-orange">
                       ₹160
-                    </span>
-                    <span className="inline-block px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                      Bestseller
                     </span>
                   </div>
                 </div>
               </div>
-
-              {/* Floating Chip Top Left - Desktop Only */}
-              <motion.div
-                animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="hidden sm:flex absolute -top-6 -left-6 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] items-center gap-2.5"
-              >
-                <span className="p-2 rounded-lg bg-brand-red/20 text-brand-red shrink-0 border border-brand-red/30">
-                  <Flame className="w-4 h-4 fill-current" />
-                </span>
-                <div>
-                  <div className="text-[11px] font-bold uppercase text-white">Carved Fresh Daily</div>
-                  <div className="text-[10px] text-neutral-400">100% Whole Muscle Meat</div>
-                </div>
-              </motion.div>
-
-              {/* Floating Chip Bottom Right - Desktop Only */}
-              <motion.div
-                animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="hidden sm:flex absolute -bottom-6 -right-6 px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.08)] items-center gap-2.5"
-              >
-                <span className="p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0 border border-amber-500/30">
-                  <Sparkles className="w-4 h-4" />
-                </span>
-                <div>
-                  <div className="text-[11px] font-bold uppercase text-white">Thick Hand-Churned</div>
-                  <div className="text-[10px] text-neutral-400">Sweet & Mango Lassis</div>
-                </div>
-              </motion.div>
             </motion.div>
           </motion.div>
         </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Plus, Check, Sparkles, HelpCircle } from "lucide-react";
+import { Plus, Check } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { MenuItem } from "@/data/menuData";
 import { useOrder } from "@/context/OrderContext";
@@ -23,10 +23,10 @@ function MenuCardComponent({ item }: MenuCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -12, scale: 0.98 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={shouldReduceMotion ? {} : { y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
-      className="group relative flex flex-col justify-between bg-brand-card hover:bg-brand-card-hover border border-white/10 hover:border-brand-red/40 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300"
+      whileHover={shouldReduceMotion ? {} : { y: -4, transition: { duration: 0.25, ease: "easeOut" } }}
+      className="group relative flex flex-col justify-between bg-brand-card hover:bg-brand-card-hover border border-white/10 hover:border-brand-red/40 rounded-xl overflow-hidden shadow-lg transition-all duration-300"
     >
-      {/* Top Image Container with Fixed Dimensions */}
+      {/* Top Image Container - Clean Uncluttered Showcase */}
       <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-neutral-950">
         {item.image && (
           <Image
@@ -39,84 +39,72 @@ function MenuCardComponent({ item }: MenuCardProps) {
           />
         )}
 
-        {/* Gradient shadow overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-black/20 to-transparent opacity-85 pointer-events-none" />
+        {/* Subtle bottom shadow vignette */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent opacity-80 pointer-events-none" />
 
-        {/* Veg / Non-Veg Indicator Badge */}
-        <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-xl border border-white/20 z-10 shadow-md">
-          <span
-            className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center ${
-              item.isVeg ? "border-brand-veg" : "border-brand-non-veg"
-            }`}
-          >
-            <span
-              className={`w-1.5 h-1.5 rounded-full ${
-                item.isVeg ? "bg-brand-veg" : "bg-brand-non-veg"
-              }`}
-            />
-          </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-300">
-            {item.isVeg ? "Veg" : "Non-Veg"}
-          </span>
-        </div>
-
-        {/* Highlight Badge if any */}
+        {/* Minimal Badge if present */}
         {item.badge && (
-          <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-red/35 backdrop-blur-xl text-white text-[10px] font-bold uppercase tracking-wider shadow-[0_2px_10px_rgba(229,9,20,0.3)] border border-brand-red/50 group-hover:scale-105 transition-transform z-10">
-            <Sparkles className="w-2.5 h-2.5" />
+          <div className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider text-brand-orange bg-black/60 backdrop-blur-md px-2 py-0.5 rounded">
             {item.badge}
           </div>
         )}
-
-        {/* Price Tag floating bottom left of image */}
-        <div className="absolute bottom-3 left-3.5 z-10">
-          {item.price !== null ? (
-            <span className="text-xl sm:text-2xl font-display font-black text-white drop-shadow-md tracking-wider">
-              {item.priceDisplay}
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400 bg-black/80 px-2 py-0.5 rounded-full border border-amber-500/30">
-              <HelpCircle className="w-3 h-3" /> Price at Counter
-            </span>
-          )}
-        </div>
       </div>
 
-      {/* Card Body */}
+      {/* Card Body - Clear Typography Hierarchy */}
       <div className="flex-1 flex flex-col justify-between p-4 sm:p-5">
         <div>
-          <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-brand-red-light transition-colors line-clamp-1">
+          {/* Category & Diet indicator */}
+          <div className="flex items-center gap-1.5 mb-1.5 text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+            <span
+              className={`w-2 h-2 rounded-full shrink-0 ${
+                item.isVeg ? "bg-brand-veg" : "bg-brand-non-veg"
+              }`}
+            />
+            <span>{item.isVeg ? "Pure Veg" : "Non-Veg"}</span>
+            <span className="text-neutral-600">•</span>
+            <span>{item.category}</span>
+          </div>
+
+          <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-brand-orange transition-colors line-clamp-1">
             {item.name}
           </h3>
-          <p className="mt-1.5 text-xs text-neutral-400 line-clamp-2 leading-relaxed">
+          <p className="mt-1 text-xs text-neutral-400 line-clamp-2 leading-relaxed">
             {item.description}
           </p>
         </div>
 
-        {/* Action Row */}
-        <div className="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
-          <span className="text-[11px] font-semibold tracking-wider uppercase text-neutral-500">
-            {item.category}
-          </span>
+        {/* Bottom Row: Price & Pure Text Action */}
+        <div className="mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between">
+          <div>
+            {item.price !== null ? (
+              <span className="text-lg sm:text-xl font-display font-black text-white tracking-wide">
+                {item.priceDisplay}
+              </span>
+            ) : (
+              <span className="text-xs font-semibold text-neutral-400">
+                At Counter
+              </span>
+            )}
+          </div>
 
           <button
             onClick={() => addToTray(item)}
-            className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-xl transition-all transform active:scale-95 ${
+            className={`inline-flex items-center gap-1.5 py-1 px-1 text-xs font-bold uppercase tracking-wider transition-colors ${
               existingInTray
-                ? "bg-emerald-950/80 text-emerald-300 border border-emerald-500/50 shadow-sm"
-                : "bg-brand-red/30 hover:bg-brand-red/45 active:bg-brand-red/55 text-white border border-brand-red/50 hover:border-brand-red/70 shadow-[0_4px_16px_rgba(229,9,20,0.3),inset_0_1px_0_rgba(255,255,255,0.25)] hover:-translate-y-0.5"
+                ? "text-emerald-400 hover:text-emerald-300"
+                : "text-brand-orange hover:text-white"
             }`}
             aria-label={`Add ${item.name} to order`}
           >
             {existingInTray ? (
               <>
                 <Check className="w-3.5 h-3.5" />
-                <span>In Tray ({existingInTray.quantity})</span>
+                <span>Added ({existingInTray.quantity})</span>
               </>
             ) : (
               <>
                 <Plus className="w-3.5 h-3.5" />
-                <span>Order</span>
+                <span>+ Add</span>
               </>
             )}
           </button>

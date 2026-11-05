@@ -26,8 +26,9 @@ export default function FAQSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
-            <HelpCircle className="w-3.5 h-3.5 text-brand-red" /> Frequently Asked Questions
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-orange mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-brand-red" />
+            <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             EVERYTHING YOU NEED TO KNOW

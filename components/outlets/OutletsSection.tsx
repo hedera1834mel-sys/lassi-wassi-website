@@ -38,14 +38,9 @@ export default function OutletsSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] backdrop-blur-2xl text-brand-orange border border-white/15 text-xs font-bold uppercase tracking-widest mb-3 shadow-[0_2px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)]">
-            <motion.span
-              animate={shouldReduceMotion ? {} : { scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <MapPin className="w-3.5 h-3.5 text-brand-red" />
-            </motion.span>
-            Pune Outlets Network
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-orange mb-3">
+            <MapPin className="w-3.5 h-3.5 text-brand-red" />
+            <span>Pune Outlets Network</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wider text-white">
             FIND A LASSI WASSI NEAR YOU
@@ -85,7 +80,7 @@ export default function OutletsSection() {
                       <MapPin className="w-3.5 h-3.5" /> {outlet.area}
                     </span>
                     {outlet.badge && (
-                      <span className="px-3 py-0.5 rounded-full bg-brand-red/25 text-brand-red border border-brand-red/45 text-[10px] font-black uppercase tracking-wider shadow-sm">
+                      <span className="px-2.5 py-0.5 rounded-lg bg-brand-red/25 text-brand-red border border-brand-red/45 text-[10px] font-black uppercase tracking-wider shadow-sm">
                         {outlet.badge}
                       </span>
                     )}
@@ -120,7 +115,7 @@ export default function OutletsSection() {
                       {outlet.popularFor.map((item, itemIdx) => (
                         <span
                           key={itemIdx}
-                          className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/15 text-[11px] text-neutral-300"
+                          className="px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/15 text-[11px] text-neutral-300"
                         >
                           {item}
                         </span>
@@ -129,23 +124,23 @@ export default function OutletsSection() {
                   </div>
                 </div>
 
-                {/* Card Actions Row - Floating Glass Capsule Buttons */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center gap-3">
+                {/* Card Actions Row - Clean Minimal Text Links */}
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                   <button
                     onClick={() => handleDirections(outlet.name, outlet.googleMapsQuery)}
-                    className="w-full sm:w-1/2 py-3 px-5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/20 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all group backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"
+                    className="inline-flex items-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-neutral-400 hover:text-white transition-colors group"
                   >
                     <Navigation className="w-3.5 h-3.5 text-brand-orange group-hover:scale-110 transition-transform" />
-                    <span>Get Directions</span>
-                    <ExternalLink className="w-3 h-3 text-neutral-400" />
+                    <span>Directions</span>
+                    <ExternalLink className="w-3 h-3 text-neutral-500" />
                   </button>
 
                   <button
                     onClick={() => handleOrderOutlet(outlet.name)}
-                    className="w-full sm:w-1/2 py-3 px-5 rounded-full bg-brand-red/30 hover:bg-brand-red/45 active:bg-brand-red/55 text-white text-xs font-bold uppercase tracking-wider shadow-[0_4px_20px_rgba(229,9,20,0.3),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-brand-red/50 hover:border-brand-red/70 backdrop-blur-2xl flex items-center justify-center gap-2 transition-all transform active:scale-95"
+                    className="inline-flex items-center gap-1.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-orange hover:text-white transition-colors group"
                   >
                     <ShoppingBag className="w-3.5 h-3.5 text-brand-orange" />
-                    <span>Order Here</span>
+                    <span>Order Here →</span>
                   </button>
                 </div>
               </motion.div>
