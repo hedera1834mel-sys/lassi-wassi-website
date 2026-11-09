@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import MenuSection from "@/components/menu/MenuSection";
 
 export const metadata: Metadata = {
@@ -24,7 +25,9 @@ export default function MenuPage() {
       </div>
 
       {/* Complete Menu Section with Category Filters, Search & Dishes */}
-      <MenuSection />
+      <Suspense fallback={<div className="py-20 text-center text-amber-400">Loading menu...</div>}>
+        <MenuSection />
+      </Suspense>
     </main>
   );
 }

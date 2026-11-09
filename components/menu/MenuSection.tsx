@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Search, Sparkles, Filter, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MENU_CATEGORIES, MENU_ITEMS, MenuCategory } from "@/data/menuData";
@@ -8,10 +9,22 @@ import MenuCard from "./MenuCard";
 import { analyticsEvents } from "@/lib/analytics";
 
 export default function MenuSection() {
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<MenuCategory | "ALL">("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [dietFilter, setDietFilter] = useState<"ALL" | "VEG" | "NON-VEG">("ALL");
   const shouldReduceMotion = useReducedMotion();
+
+  // Handle URL query parameter ?category=...
+  useEffect(() => {
+    const cat = searchParams?.get("category");
+    if (cat) {
+      const match = MENU_CATEGORIES.find((c) => c.id.toLowerCase() === cat.toLowerCase());
+      if (match) {
+        setSelectedCategory(match.id);
+      }
+    }
+  }, [searchParams]);
 
   const handleCategorySelect = (category: MenuCategory | "ALL") => {
     setSelectedCategory(category);
