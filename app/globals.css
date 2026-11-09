@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --color-bg: #100D0D;
-    --color-text: #F3F4F6;
+    --color-bg: #180606;
+    --color-text: #FAF6F0;
   }
 
   *,
@@ -16,8 +16,8 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #100D0D;
-    color: #F3F4F6;
+    background-color: #180606;
+    color: #FAF6F0;
     color-scheme: dark;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -31,7 +31,7 @@
     max-width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #100D0D;
+    background-color: #180606;
     background-image: 
       radial-gradient(ellipse 90% 60% at 50% -10%, rgba(53, 14, 14, 0.45), transparent 70%),
       radial-gradient(ellipse 70% 50% at 100% 40%, rgba(42, 12, 12, 0.3), transparent 60%),

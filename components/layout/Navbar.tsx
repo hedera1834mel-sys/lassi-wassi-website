@@ -2,71 +2,53 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ShoppingBag, Phone } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, ShoppingBag, ArrowRight, UtensilsCrossed } from "lucide-react";
 import { useOrder } from "@/context/OrderContext";
-import { DISPLAY_WHATSAPP_NUMBER } from "@/lib/whatsapp";
-import { analyticsEvents } from "@/lib/analytics";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "Menu", href: "#menu" },
-  { label: "About", href: "#about" },
-  { label: "Outlets", href: "#outlets" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "MENU", href: "/menu" },
+  { label: "ABOUT", href: "/about" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setIsOrderModalOpen, totalItems, setIsTrayOpen } = useOrder();
+  const { totalItems, setIsTrayOpen } = useOrder();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (href: string) => {
+  // Close mobile menu on route change
+  useEffect(() => {
     setMobileMenuOpen(false);
-    if (href === "#top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleOrderClick = () => {
-    analyticsEvents.orderNowClick("navbar");
-    setIsOrderModalOpen(true);
-    setMobileMenuOpen(false);
-  };
+  }, [pathname]);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/85 backdrop-blur-xl border-b border-white/10 py-3 shadow-[0_4px_30px_rgba(0,0,0,0.7)]"
-          : "bg-transparent py-4 sm:py-5"
+          ? "bg-[#180606]/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.7)]"
+          : "bg-[#180606]/75 backdrop-blur-md border-b border-white/[0.06] py-3.5 sm:py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between w-full">
-        {/* Logo */}
-        <button
-          onClick={() => handleLinkClick("#top")}
+        {/* Brand Logo (Left) */}
+        <Link
+          href="/"
           className="flex items-center gap-2.5 sm:gap-3 group text-left"
           aria-label="Lassi Wassi Home"
         >
-          <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_12px_rgba(229,9,20,0.35)]">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_14px_rgba(229,9,20,0.4)]">
             <Image
               src="/images/logo.png"
               alt="Lassi Wassi Official Logo"
@@ -77,113 +59,108 @@ export default function Navbar() {
             />
           </div>
           <div>
-            <span className="text-2xl sm:text-3xl font-display font-black tracking-wider text-white uppercase block leading-none">
+            <span className="text-xl sm:text-2xl font-display font-black tracking-wider text-white uppercase block leading-none">
               LASSI <span className="text-brand-red">WASSI</span>
             </span>
-            <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-neutral-400 block -mt-0.5">
+            <span className="text-[9px] font-bold tracking-[0.22em] uppercase text-amber-400/90 block -mt-0.5">
               The Original Shawarma
             </span>
           </div>
-        </button>
+        </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleLinkClick(link.href)}
-              className="text-xs font-bold uppercase tracking-wider text-neutral-300 hover:text-brand-red transition-colors relative py-1"
-            >
-              {link.label}
-            </button>
-          ))}
+        {/* Desktop Navigation Links (Strict order: HOME | MENU | ABOUT | CONTACT) */}
+        <nav className="hidden lg:flex items-center gap-9">
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`text-xs font-bold uppercase tracking-[0.16em] transition-all relative py-1 ${
+                  isActive
+                    ? "text-amber-400 font-black"
+                    : "text-neutral-200 hover:text-amber-400"
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-red via-amber-400 to-amber-500 rounded-full" />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Right CTA Actions */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          {/* WhatsApp Quick Order Tray Trigger */}
+        {/* Right CTA Actions: Tray Trigger + Golden Explore Menu Button */}
+        <div className="flex items-center gap-3 sm:gap-5">
+          {/* WhatsApp Order Tray Trigger */}
           {totalItems > 0 && (
             <button
               onClick={() => setIsTrayOpen(true)}
-              className="relative p-1 text-white hover:text-brand-orange transition-colors"
+              className="relative p-2 rounded-xl bg-white/[0.08] border border-white/15 text-white hover:border-amber-400 transition-colors"
               aria-label="Open tray"
             >
-              <ShoppingBag className="w-5 h-5" />
-              <span className="absolute -top-1.5 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-sm">
+              <ShoppingBag className="w-4 h-4 text-amber-400" />
+              <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-brand-red text-white text-[10px] font-black flex items-center justify-center shadow-md">
                 {totalItems}
               </span>
             </button>
           )}
 
-          {/* Primary Order Now - Pure Text Link (No Box / No Border) */}
-          <button
-            onClick={handleOrderClick}
-            className="hidden sm:inline-flex items-center gap-2 py-1 px-1 text-xs font-black uppercase tracking-widest text-brand-orange hover:text-white transition-colors group"
+          {/* Golden Explore Menu Button */}
+          <Link
+            href="/menu"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-neutral-950 text-xs font-black uppercase tracking-wider shadow-[0_4px_20px_rgba(245,158,11,0.3)] hover:shadow-[0_6px_25px_rgba(245,158,11,0.5)] hover:scale-[1.03] active:scale-[0.98] transition-all group"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-red group-hover:scale-125 transition-transform" />
-            <span>ORDER NOW</span>
-            <span className="text-brand-orange group-hover:translate-x-1 transition-transform">→</span>
-          </button>
+            <UtensilsCrossed className="w-3.5 h-3.5 text-neutral-950" />
+            <span>Explore Menu</span>
+            <ArrowRight className="w-3.5 h-3.5 text-neutral-950 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
 
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-neutral-300 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg bg-white/[0.06] border border-white/10 text-neutral-200 hover:text-white transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Animated Slide-down Menu */}
+      {/* Mobile Animated Slide-down Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-2xl border-b border-white/10 p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.8)] animate-fade-in">
-          <div className="flex flex-col space-y-4">
-            <div className="flex items-center gap-3 pb-3 border-b border-white/10">
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <Image
-                  src="/images/logo.png"
-                  alt="Lassi Wassi Official Logo"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-xl font-display font-black tracking-wider text-white uppercase block leading-none">
-                  LASSI <span className="text-brand-red">WASSI</span>
-                </span>
-                <span className="text-[8px] font-bold tracking-[0.2em] uppercase text-neutral-400 block mt-0.5">
-                  The Original Shawarma
-                </span>
-              </div>
-            </div>
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleLinkClick(link.href)}
-                className="text-left text-sm sm:text-base font-bold uppercase tracking-wider text-neutral-200 hover:text-brand-red py-2 border-b border-white/[0.06] transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+        <div className="lg:hidden fixed inset-x-0 top-[60px] bg-[#180606]/98 backdrop-blur-2xl border-b border-white/15 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.85)] animate-fade-in">
+          <div className="flex flex-col space-y-3">
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-left text-sm font-bold uppercase tracking-wider py-2.5 px-3 rounded-lg border transition-all ${
+                    isActive
+                      ? "text-amber-400 bg-white/[0.06] border-amber-400/30"
+                      : "text-neutral-200 hover:text-amber-400 border-transparent hover:bg-white/[0.03]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
-            {/* Mobile Actions - Pure Text Links */}
-            <div className="pt-2 space-y-3">
-              <button
-                onClick={handleOrderClick}
-                className="w-full py-2.5 text-left text-xs sm:text-sm font-black uppercase tracking-widest text-brand-orange hover:text-white flex items-center gap-2 transition-colors border-b border-white/[0.08]"
+            {/* Mobile Explore Menu CTA Button */}
+            <div className="pt-2">
+              <Link
+                href="/menu"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-neutral-950 text-xs font-black uppercase tracking-wider shadow-lg shadow-amber-500/25 active:scale-[0.98] transition-all"
               >
-                <span className="w-2 h-2 rounded-full bg-brand-red" />
-                <span>ORDER NOW (WHATSAPP / APPS) →</span>
-              </button>
-
-              <div className="flex items-center gap-2 text-xs text-neutral-400 pt-1">
-                <Phone className="w-3.5 h-3.5 text-brand-red" />
-                <span>Quick WhatsApp: <b className="text-white">{DISPLAY_WHATSAPP_NUMBER}</b></span>
-              </div>
+                <UtensilsCrossed className="w-4 h-4 text-neutral-950" />
+                <span>Explore Menu →</span>
+              </Link>
             </div>
           </div>
         </div>
