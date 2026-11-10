@@ -21,12 +21,12 @@ export default function Footer() {
           {/* Brand Info (Span 2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative w-11 h-11 flex-shrink-0 drop-shadow-[0_0_12px_rgba(229,9,20,0.35)]">
+              <div className="relative w-12 h-12 flex-shrink-0 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
                 <Image
                   src="/images/logo.png"
                   alt="Lassi Wassi Official Logo"
-                  width={48}
-                  height={48}
+                  width={56}
+                  height={56}
                   className="w-full h-full object-contain"
                 />
               </div>

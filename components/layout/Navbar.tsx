@@ -48,12 +48,12 @@ export default function Navbar() {
           className="flex items-center gap-2.5 sm:gap-3 group text-left"
           aria-label="Lassi Wassi Home"
         >
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_14px_rgba(229,9,20,0.4)]">
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
             <Image
               src="/images/logo.png"
               alt="Lassi Wassi Official Logo"
-              width={48}
-              height={48}
+              width={56}
+              height={56}
               className="w-full h-full object-contain"
               priority
             />
