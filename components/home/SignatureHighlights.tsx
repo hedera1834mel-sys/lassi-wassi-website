@@ -125,11 +125,11 @@ export default function SignatureHighlights() {
         <div className="mt-12 sm:mt-14 text-center">
           <Link
             href="/menu"
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-neutral-950 text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-105 active:scale-[0.98] transition-all group"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400/15 via-amber-500/10 to-amber-400/5 hover:from-amber-400/25 hover:via-amber-500/20 border border-amber-400/40 hover:border-amber-400/80 text-amber-300 hover:text-white text-xs sm:text-sm font-black uppercase tracking-wider backdrop-blur-xl shadow-[0_8px_30px_rgba(245,158,11,0.18),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-[0.98] transition-all group"
           >
-            <UtensilsCrossed className="w-4 h-4 text-neutral-950" />
+            <UtensilsCrossed className="w-4 h-4 text-amber-400" />
             <span>Explore Full Menu (17 Categories)</span>
-            <ArrowRight className="w-4 h-4 text-neutral-950 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

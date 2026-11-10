@@ -107,14 +107,14 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* Golden Explore Menu Button */}
+          {/* Glass Explore Menu Button */}
           <Link
             href="/menu"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-neutral-950 text-xs font-black uppercase tracking-wider shadow-[0_4px_20px_rgba(245,158,11,0.3)] hover:shadow-[0_6px_25px_rgba(245,158,11,0.5)] hover:scale-[1.03] active:scale-[0.98] transition-all group"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400/15 via-amber-500/10 to-amber-400/5 hover:from-amber-400/25 hover:via-amber-500/20 border border-amber-400/40 hover:border-amber-400/80 text-amber-300 hover:text-white text-xs font-black uppercase tracking-wider backdrop-blur-xl shadow-[0_4px_20px_rgba(245,158,11,0.15),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all group"
           >
-            <UtensilsCrossed className="w-3.5 h-3.5 text-neutral-950" />
+            <UtensilsCrossed className="w-3.5 h-3.5 text-amber-400" />
             <span>Explore Menu</span>
-            <ArrowRight className="w-3.5 h-3.5 text-neutral-950 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
           {/* Mobile Hamburger Toggle */}

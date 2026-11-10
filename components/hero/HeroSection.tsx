@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Flame, Sparkles, HeartHandshake, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, UtensilsCrossed } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function HeroSection() {
@@ -20,17 +20,17 @@ export default function HeroSection() {
 
   const BRAND_HIGHLIGHTS = [
     {
-      icon: Flame,
+      iconPath: "/icons/icon-flame.png",
       title: "Freshly Prepared",
       desc: "Flame-carved hot off the spit.",
     },
     {
-      icon: Sparkles,
+      iconPath: "/icons/icon-sparkle.png",
       title: "Premium Ingredients",
       desc: "Whole muscle meat & pure curd.",
     },
     {
-      icon: HeartHandshake,
+      iconPath: "/icons/icon-heart.png",
       title: "Loved by Pune",
       desc: "Authentic street taste Pune craves.",
     },
@@ -81,49 +81,60 @@ export default function HeroSection() {
               Big flavour. Fresh off the grill. From our first shawarma in Pune to your next favourite bite — come hungry.
             </p>
 
-            {/* Action Buttons Group (Left-Aligned) */}
+            {/* Action Buttons Group - Premium Glass Effect */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3.5 sm:gap-4 w-full sm:w-auto">
+              {/* Explore Menu: Elegant Glassmorphism Button */}
               <Link
                 href="/menu"
-                className="inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-neutral-950 text-xs sm:text-sm font-black uppercase tracking-wider shadow-[0_6px_25px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_32px_rgba(245,158,11,0.55)] hover:scale-[1.03] active:scale-[0.98] transition-all group"
+                className="inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-amber-400/15 via-amber-500/10 to-amber-400/5 hover:from-amber-400/25 hover:via-amber-500/20 hover:to-amber-400/10 border border-amber-400/40 hover:border-amber-400/80 text-amber-300 hover:text-white text-xs sm:text-sm font-black uppercase tracking-wider backdrop-blur-xl shadow-[0_8px_30px_rgba(245,158,11,0.18),inset_0_1px_1px_rgba(255,255,255,0.25)] hover:shadow-[0_10px_35px_rgba(245,158,11,0.35)] hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
-                <UtensilsCrossed className="w-4 h-4 text-neutral-950" />
+                <UtensilsCrossed className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
                 <span>Explore Menu</span>
-                <ArrowRight className="w-4 h-4 text-neutral-950 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-amber-400 group-hover:translate-x-1 transition-transform" />
               </Link>
 
+              {/* Our Story: Sleek Dark Glass Button */}
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-black/60 hover:bg-white/[0.1] border border-white/20 hover:border-amber-400/50 text-neutral-100 hover:text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-md transition-all group"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-white/35 text-neutral-200 hover:text-white text-xs sm:text-sm font-bold uppercase tracking-wider backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.12)] hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
                 <span>Our Story</span>
                 <span className="text-amber-400 group-hover:translate-x-0.5 transition-transform">→</span>
               </Link>
             </div>
 
-            {/* Small Brand Highlights (Left-Aligned) */}
+            {/* Small Brand Highlights (with user's custom uploaded icons) */}
             <div className="pt-5 sm:pt-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full border-t border-white/10">
-              {BRAND_HIGHLIGHTS.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.title}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-black/45 border border-white/10 backdrop-blur-md text-left"
-                  >
-                    <div className="p-1.5 rounded-lg bg-amber-400/15 border border-amber-400/30 text-amber-400 shrink-0">
-                      <Icon className="w-3.5 h-3.5" />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-white truncate">
-                        {item.title}
-                      </h3>
-                      <p className="text-[10px] text-neutral-400 truncate">
-                        {item.desc}
-                      </p>
-                    </div>
+              {BRAND_HIGHLIGHTS.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-black/45 hover:bg-black/65 border border-white/10 hover:border-amber-400/30 backdrop-blur-md transition-all text-left"
+                >
+                  <div className="p-2 rounded-lg bg-amber-400/15 border border-amber-400/30 shrink-0 flex items-center justify-center">
+                    <span
+                      className="w-4 h-4 bg-amber-400 block shrink-0"
+                      style={{
+                        maskImage: `url('${item.iconPath}')`,
+                        WebkitMaskImage: `url('${item.iconPath}')`,
+                        maskSize: "contain",
+                        WebkitMaskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskPosition: "center",
+                      }}
+                    />
                   </div>
-                );
-              })}
+                  <div className="min-w-0">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-white truncate">
+                      {item.title}
+                    </h3>
+                    <p className="text-[10px] text-neutral-400 truncate">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
 
